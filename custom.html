@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Orders | Dandy Saddlery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-logo"><h1>Dandy Saddlery</h1></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="custom.html" class="active">Custom Orders</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+        </ul>
+    </nav>
+
+    <section class="section-padding">
+        <div class="section-header">
+            <h2>Bespoke Custom Orders</h2>
+            <p style="max-width: 600px; margin: 15px auto 0; color: var(--text-muted);">We don't use standard algorithmic checkouts. Fill out your build specifications below, and our leather master will coordinate your build template directly.</p>
+        </div>
+
+        <div class="form-container">
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Full Name</label>
+                    <input type="text" id="name" name="name" required placeholder="John Doe">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="gear-type">Project Focus</label>
+                    <select id="gear-type" name="gear-type">
+                        <option value="saddle">Custom Tree Saddle</option>
+                        <option value="belt">Heavy Duty Leather Belt</option>
+                        <option value="holster">Field Holster / Scabbard</option>
+                        <option value="other">Bespoke EDC Item</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="specs">Sizing Measurements & Custom Tooling Requests</label>
+                    <textarea id="specs" name="specs" rows="6" placeholder="Please list your dimensions, leather type choices, or stamping preferences..."></textarea>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%;">Submit Work Order Request</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Jason Wubbold</p>
+        </div>
+    </footer>
+
+</body>
+</html>
