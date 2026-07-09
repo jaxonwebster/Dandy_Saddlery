@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // FAQ Knowledge Base Configurations
     const faqData = {
-        greeting: "Welcome to our bench. I can help answer some common questions about our handcrafted leather goods. What are you looking to build today?",
+        greeting: "Welcome to our online leather assistant. I can help answer some common questions about our handcrafted leather goods. What are you looking to build today?",
         faqs: [
             {
                 id: 1,
