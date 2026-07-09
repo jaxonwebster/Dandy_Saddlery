@@ -9,9 +9,9 @@
 <body>
 
     <nav class="navbar">
-        <div class="nav-logo">
+        <a href="index.html" class="nav-logo">
             <h1>Dandy <span>Saddlery</span></h1>
-        </div>
+        </a>
         
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
         <label for="menu-toggle" class="hamburger">
@@ -36,9 +36,9 @@
         </div>
 
         <div class="form-container">
-            <p style="margin-bottom: 30px; font-size: 0.95rem; opacity: 0.85; text-align: center;">We build real gear tailored precisely to you. Please provide your measurements, desired leather shade (natural, medium brown, dark espresso), and specific hardware finishes so we can build your tailored blueprint.</p>
+            <p style="margin-bottom: 30px; font-size: 0.95rem; opacity: 0.85; text-align: center;">We build real gear tailored precisely to you. Please provide your measurements, desired leather shade, and specific hardware finishes so we can build your tailored blueprint.</p>
             
-            <form action="#" method="POST">
+            <form action="#" method="POST" id="customBuildForm">
                 <div class="form-group">
                     <label for="name">Your Name</label>
                     <input type="text" id="name" name="name" required placeholder="John Carter">
@@ -60,8 +60,29 @@
                 </div>
 
                 <div class="form-group">
+                    <label>Leather Finish Option</label>
+                    <div class="swatch-container">
+                        <label class="swatch-option">
+                            <input type="radio" name="leather_color" value="Natural Tan" checked>
+                            <span class="swatch-ball swatch-natural"></span>
+                            <span class="swatch-label-text">Natural</span>
+                        </label>
+                        <label class="swatch-option">
+                            <input type="radio" name="leather_color" value="Medium Brown">
+                            <span class="swatch-ball swatch-brown"></span>
+                            <span class="swatch-label-text">Brown</span>
+                        </label>
+                        <label class="swatch-option">
+                            <input type="radio" name="leather_color" value="Dark Espresso">
+                            <span class="swatch-ball swatch-espresso"></span>
+                            <span class="swatch-label-text">Espresso</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label for="details">Build Dimensions & Tooling Requests</label>
-                    <textarea id="details" name="details" rows="6" placeholder="Example: Waist size (36 inches), Dark Tan oil, block stamping initials, or horse fitting notes..."></textarea>
+                    <textarea id="details" name="details" rows="6" placeholder="Example: Waist size (36 inches), block stamping initials, or horse fitting notes..."></textarea>
                 </div>
 
                 <button type="submit" class="btn" style="width: 100%;">Submit Custom Project Request</button>
@@ -69,13 +90,76 @@
         </div>
     </section>
 
+    <!-- Standardized Premium Footer Layout -->
     <footer class="main-footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <h3>Dandy Saddlery</h3>
+                <p>Handmade. Built to Last.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.8z"/></svg>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="products.html">All Goods</a></li>
+                        <li><a href="custom.html">Custom Orders</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="reviews.html">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Craft Information</h4>
+                    <ul>
+                        <li><a href="#">Measure My Belt Size</a></li>
+                        <li><a href="#">Submitting Customs Outlines</a></li>
+                        <li><a href="#">Leather Care Guide</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">Our Promise & Warranty</a></li>
+                        <li><a href="#">Visit Us in Person</a></li>
+                        <li><a href="#">Refund & Return Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <div class="footer-bottom">
             <p>&copy; 2026 Jaxon Webster</p>
         </div>
     </footer>
 
     <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedItem = localStorage.getItem('dandy_order_transfer');
+            if (savedItem) {
+                const detailsField = document.getElementById('details');
+                const typeField = document.getElementById('type');
+                
+                if (detailsField) {
+                    detailsField.value = `Hello! I would like to build and configure a blueprint framework for the product: "${savedItem}". Please help me coordinate precision custom sizing configurations.`;
+                }
+                
+                if (typeField) {
+                    if (savedItem.includes("Saddle")) typeField.value = "saddle";
+                    else if (savedItem.includes("Belt")) typeField.value = "belt";
+                    else if (savedItem.includes("Scabbard")) typeField.value = "scabbard";
+                }
+                localStorage.removeItem('dandy_order_transfer');
+            }
+        });
+
         const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
         const scrollObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {

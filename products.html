@@ -9,9 +9,9 @@
 <body>
 
     <nav class="navbar">
-        <div class="nav-logo">
+        <a href="index.html" class="nav-logo">
             <h1>Dandy <span>Saddlery</span></h1>
-        </div>
+        </a>
         
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
         <label for="menu-toggle" class="hamburger">
@@ -36,47 +36,121 @@
         </div>
 
         <div class="product-grid">
-            <div class="product-card animate-on-scroll">
+            <!-- Product 1 -->
+            <div class="product-card animate-on-scroll" 
+                 data-name="The Rancher Saddle" 
+                 data-price="Custom Tree - Built to Order" 
+                 data-desc="Individually customized tree build, featuring hand-tooled leaf patterns, premium weather-sealed oil finishes, and reinforced heavy-gauge saddle lining. Designed to deliver superior comfort and balance through long days across active trail work."
+                 data-rev1="&ldquo;Contours perfectly to my position. Absolutely bombproof rig.&rdquo; &mdash; Dan K."
+                 data-rev2="&ldquo;Singular attention to detail on the leaf pattern tooling marks.&rdquo; &mdash; Wyatt L.">
                 <div class="image-placeholder">[ Premium Western Saddle ]</div>
                 <h3>The Rancher Saddle</h3>
                 <p class="product-price">Custom Tree - Built to Order</p>
-                <p style="font-size: 0.9rem; opacity: 0.85; margin-bottom: 20px;">Individually customized tree, hand-tooled leaf pattern, premium oil finishes.</p>
-                <a href="custom.html" class="btn">Configure Sizing</a>
+                <button class="btn btn-details" style="width: 100%;">See Details</button>
             </div>
 
-            <div class="product-card animate-on-scroll">
+            <!-- Product 2 -->
+            <div class="product-card animate-on-scroll" 
+                 data-name="Classic Heritage Belt (1.5&quot;)" 
+                 data-price="$95.00" 
+                 data-desc="Heavy duty solid brass buckle configurations matching an premium 12oz vegetable-tanned harness leather strap hide sourcing. Beveled wax runtime edge layouts ensure comfortable dynamic everyday carrying durability."
+                 data-rev1="&ldquo;The natural process is incredibly satisfying to watch patina.&rdquo; &mdash; Cole B."
+                 data-rev2="&ldquo;Thick, heavy leather that sets into shape effortlessly.&rdquo; &mdash; Marcus G.">
                 <div class="image-placeholder">[ Handstitched Heavy Belt ]</div>
                 <h3>Classic Heritage Belt (1.5")</h3>
                 <p class="product-price">$95.00</p>
-                <p style="font-size: 0.9rem; opacity: 0.85; margin-bottom: 20px;">Solid brass buckles, beveled wax edges, rich vegetable tanned cowhide.</p>
-                <a href="custom.html" class="btn">Configure Sizing</a>
+                <button class="btn btn-details" style="width: 100%;">See Details</button>
             </div>
 
-            <div class="product-card animate-on-scroll">
+            <!-- Product 3 -->
+            <div class="product-card animate-on-scroll" 
+                 data-name="Bespoke Rifle Scabbard" 
+                 data-price="$185.00" 
+                 data-desc="Traditional heavy waxed line saddle-stitch layout, adjustable reinforcement mounting straps, and solid framing setup to guarantee comprehensive field protection across remote backcountry travel environments."
+                 data-rev1="&ldquo;Secure, solid lockup on my frame. Keeps elements out perfectly.&rdquo; &mdash; Frank R."
+                 data-rev2="&ldquo;Smells like incredible, old-world workbench quality leather.&rdquo; &mdash; Vance P.">
                 <div class="image-placeholder">[ Custom Leather Scabbard ]</div>
                 <h3>Bespoke Rifle Scabbard</h3>
                 <p class="product-price">$185.00</p>
-                <p style="font-size: 0.9rem; opacity: 0.85; margin-bottom: 20px;">Saddle-stitch construction, reinforced harness straps, weather-sealed coat.</p>
-                <a href="custom.html" class="btn">Configure Sizing</a>
+                <button class="btn btn-details" style="width: 100%;">See Details</button>
             </div>
         </div>
     </section>
 
+    <!-- Carousel Details Popup Modal Component -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-wrapper">
+            <button class="modal-close" id="modalCloseBtn">&times;</button>
+            
+            <!-- Picture Carousel Display Module -->
+            <div class="carousel-container">
+                <div class="carousel-viewport">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-slide image-placeholder" style="background-color: #ece5da;">[ Main Angle Studio Shot ]</div>
+                        <div class="carousel-slide image-placeholder" style="background-color: #dfd7ca;">[ Detail Tooling Close-up ]</div>
+                        <div class="carousel-slide image-placeholder" style="background-color: #d2c8b8;">[ Workshop Production Action ]</div>
+                    </div>
+                </div>
+                <button class="carousel-btn carousel-prev" id="prevBtn">&#10094;</button>
+                <button class="carousel-btn carousel-next" id="nextBtn">&#10095;</button>
+            </div>
+
+            <div class="modal-info">
+                <h2 id="modalTitle">Product</h2>
+                <p style="color: var(--accent-color); font-weight: 600; font-size: 1.2rem; margin-top: 5px;" id="modalPrice"></p>
+                <p class="modal-desc" id="modalDesc"></p>
+                
+                <div class="modal-reviews-section">
+                    <h4>Reviews</h4>
+                    <div id="modalReviewsContainer"></div>
+                </div>
+
+                <button class="btn" id="modalCreateOrderBtn" style="width: 100%; margin-top: 25px;">Create Order</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Standardized Premium Footer Layout -->
     <footer class="main-footer">
         <div class="footer-top">
             <div class="footer-brand">
                 <h3>Dandy Saddlery</h3>
                 <p>Handmade. Built to Last.</p>
                 <div class="social-links">
-                    <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">YouTube</a>
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.8z"/></svg>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                    </a>
                 </div>
             </div>
             <div class="footer-links-grid">
                 <div class="footer-col">
-                    <h4>Explore</h4>
+                    <h4>Products</h4>
                     <ul>
-                        <li><a href="products.html">Products</a></li>
+                        <li><a href="products.html">All Goods</a></li>
                         <li><a href="custom.html">Custom Orders</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="reviews.html">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Craft Information</h4>
+                    <ul>
+                        <li><a href="#">Measure My Belt Size</a></li>
+                        <li><a href="#">Submitting Customs Outlines</a></li>
+                        <li><a href="#">Leather Care Guide</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">Our Promise & Warranty</a></li>
+                        <li><a href="#">Visit Us in Person</a></li>
+                        <li><a href="#">Refund & Return Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>
@@ -86,7 +160,67 @@
         </div>
     </footer>
 
+    <!-- Interactive Script Operations -->
     <script>
+        let currentItemName = "";
+        let currentCarouselIndex = 0;
+        const totalSlides = 3;
+
+        const modal = document.getElementById('productModal');
+        const track = document.getElementById('carouselTrack');
+        const reviewsContainer = document.getElementById('modalReviewsContainer');
+
+        // Modal triggers setup
+        document.querySelectorAll('.btn-details').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const card = e.target.closest('.product-card');
+                currentItemName = card.getAttribute('data-name');
+                
+                document.getElementById('modalTitle').innerText = currentItemName;
+                document.getElementById('modalPrice').innerText = card.getAttribute('data-price');
+                document.getElementById('modalDesc').innerText = card.getAttribute('data-desc');
+                
+                // Content population injection logic
+                reviewsContainer.innerHTML = `
+                    <div class="modal-review-item">${card.getAttribute('data-rev1')}</div>
+                    <div class="modal-review-item">${card.getAttribute('data-rev2')}</div>
+                `;
+                
+                // Initialize carousel state variables
+                currentCarouselIndex = 0;
+                updateCarouselLayout();
+                
+                modal.classList.add('active');
+            });
+        });
+
+        document.getElementById('modalCloseBtn').addEventListener('click', () => modal.classList.remove('active'));
+        modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('active'); });
+
+        // Carousel click handler setup
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            currentCarouselIndex = (currentCarouselIndex + 1) % totalSlides;
+            updateCarouselLayout();
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            currentCarouselIndex = (currentCarouselIndex - 1 + totalSlides) % totalSlides;
+            updateCarouselLayout();
+        });
+
+        function updateCarouselLayout() {
+            track.style.transform = `translateX(-${currentCarouselIndex * 33.333}%)`;
+        }
+
+        // Pipeline transfer execution routing hook
+        document.getElementById('modalCreateOrderBtn').addEventListener('click', () => {
+            if(currentItemName) {
+                localStorage.setItem('dandy_order_transfer', currentItemName);
+                window.location.href = "custom.html";
+            }
+        });
+
+        // Scroll Observer Integration
         const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
         const scrollObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
