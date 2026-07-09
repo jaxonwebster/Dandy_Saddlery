@@ -36,7 +36,6 @@
         </div>
 
         <div class="product-grid">
-            <!-- Product 1 -->
             <div class="product-card animate-on-scroll" 
                  data-name="The Rancher Saddle" 
                  data-price="Custom Tree - Built to Order" 
@@ -49,7 +48,6 @@
                 <button class="btn btn-details" style="width: 100%;">See Details</button>
             </div>
 
-            <!-- Product 2 -->
             <div class="product-card animate-on-scroll" 
                  data-name="Classic Heritage Belt (1.5&quot;)" 
                  data-price="$95.00" 
@@ -62,7 +60,6 @@
                 <button class="btn btn-details" style="width: 100%;">See Details</button>
             </div>
 
-            <!-- Product 3 -->
             <div class="product-card animate-on-scroll" 
                  data-name="Bespoke Rifle Scabbard" 
                  data-price="$185.00" 
@@ -77,12 +74,10 @@
         </div>
     </section>
 
-    <!-- Carousel Details Popup Modal Component -->
     <div class="modal-overlay" id="productModal">
         <div class="modal-wrapper">
             <button class="modal-close" id="modalCloseBtn">&times;</button>
             
-            <!-- Picture Carousel Display Module -->
             <div class="carousel-container">
                 <div class="carousel-viewport">
                     <div class="carousel-track" id="carouselTrack">
@@ -110,7 +105,6 @@
         </div>
     </div>
 
-    <!-- Standardized Premium Footer Layout -->
     <footer class="main-footer">
         <div class="footer-top">
             <div class="footer-brand">
@@ -156,12 +150,10 @@
             </div>
         </div>
         <div class="footer-bottom">
-                        <p>&copy; 2026 <a href="https://websterwebdesign.com/">Jaxon Webster</a></p>
-
+            <p>&copy; 2026 <a href="https://websterwebdesign.com/">Jaxon Webster</a></p>
         </div>
     </footer>
 
-    <!-- Interactive Script Operations -->
     <script>
         let currentItemName = "";
         let currentCarouselIndex = 0;
@@ -233,5 +225,6 @@
         }, observerOptions);
         document.querySelectorAll('.animate-on-scroll').forEach(el => scrollObserver.observe(el));
     </script>
+    <script src="chatbot.js"></script>
 </body>
 </html>
