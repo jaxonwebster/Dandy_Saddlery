@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Stories | Dandy Saddlery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-logo">
+            <h1>Dandy <span>Saddlery</span></h1>
+        </div>
+        
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </label>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="custom.html">Custom Orders</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="reviews.html" class="active">Reviews</a></li>
+        </ul>
+    </nav>
+
+    <section class="section-padding">
+        <div class="section-header">
+            <p>Updates from the Bench</p>
+            <h2>Stories of Wear & Use</h2>
+        </div>
+
+        <div class="about-layout" style="text-align: left; max-width: 900px;">
+            <div class="blog-post animate-on-scroll">
+                <p class="blog-date">August 2026</p>
+                <h3>"Two Years Across The Backcountry"</h3>
+                <p style="margin-bottom: 15px;">We received an update from one of our early saddle owners, Dan K., who spent two seasons riding through rugged Colorado country with our Western Rancher Saddle.</p>
+                <div class="stars">★★★★★</div>
+                <p style="font-style: italic; opacity: 0.9;">"The seat profile has contoured perfectly to my position, and the fleece lining is holding up flawlessly. This rig is absolutely bombproof."</p>
+            </div>
+
+            <div class="blog-post animate-on-scroll">
+                <p class="blog-date">June 2026</p>
+                <h3>"The Daily Belt Patina"</h3>
+                <p style="margin-bottom: 15px;">An inside look at our Natural Veg-Tanned leather belts. After six months of sweat, sun exposure, and everyday wear, the leather deepens from a pale tan into a beautiful, rich mahogany brown.</p>
+                <div class="stars">★★★★★</div>
+                <p style="font-style: italic; opacity: 0.9;">"The natural process is incredibly satisfying to watch. No synthetic dye on earth can duplicate this texture."</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <h3>Dandy Saddlery</h3>
+                <p>Handmade. Built to Last.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Jaxon Webster</p>
+        </div>
+    </footer>
+
+    <script>
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const scrollObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.animate-on-scroll').forEach(el => scrollObserver.observe(el));
+    </script>
+</body>
+</html>

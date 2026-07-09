@@ -3,13 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Products | Dandy Saddlery</title>
+    <title>Saddles, Belts & Gear | Dandy Saddlery</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="nav-logo"><h1>Dandy Saddlery</h1></div>
+        <div class="nav-logo">
+            <h1>Dandy <span>Saddlery</span></h1>
+        </div>
+        
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </label>
+        
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="products.html" class="active">Products</a></li>
@@ -21,31 +31,33 @@
 
     <section class="section-padding">
         <div class="section-header">
-            <h2>Our Bench Stock</h2>
-            <p style="color: var(--text-muted); margin-top: 10px;">Handcrafted small-batch goods ready to work.</p>
+            <p>Our Core Bench Catalog</p>
+            <h2>Proven Field Gear</h2>
         </div>
 
         <div class="product-grid">
-            <!-- Product Item 1 -->
-            <div class="product-card">
-                <div class="image-placeholder">[ Leather Saddle Image ]</div>
-                <h3>The Western Rancher Saddle</h3>
-                <p class="product-price">Contact For Pricing / Build-Times</p>
-                <a href="custom.html" class="btn">Inquire / Customize</a>
+            <div class="product-card animate-on-scroll">
+                <div class="image-placeholder">[ Premium Western Saddle ]</div>
+                <h3>The Rancher Saddle</h3>
+                <p class="product-price">Custom Tree - Built to Order</p>
+                <p style="font-size: 0.9rem; opacity: 0.85; margin-bottom: 20px;">Individually customized tree, hand-tooled leaf pattern, premium oil finishes.</p>
+                <a href="custom.html" class="btn">Configure Sizing</a>
             </div>
-            <!-- Product Item 2 -->
-            <div class="product-card">
-                <div class="image-placeholder">[ Leather Belt Image ]</div>
-                <h3>The Classic Utility Belt (1.5")</h3>
+
+            <div class="product-card animate-on-scroll">
+                <div class="image-placeholder">[ Handstitched Heavy Belt ]</div>
+                <h3>Classic Heritage Belt (1.5")</h3>
                 <p class="product-price">$95.00</p>
-                <a href="custom.html" class="btn">Order Sizing</a>
+                <p style="font-size: 0.9rem; opacity: 0.85; margin-bottom: 20px;">Solid brass buckles, beveled wax edges, rich vegetable tanned cowhide.</p>
+                <a href="custom.html" class="btn">Configure Sizing</a>
             </div>
-            <!-- Product Item 3 -->
-            <div class="product-card">
-                <div class="image-placeholder">[ Holster / Wallet Image ]</div>
-                <h3>Minimalist Field Wallet</h3>
-                <p class="product-price">$65.00</p>
-                <a href="custom.html" class="btn">Inquire</a>
+
+            <div class="product-card animate-on-scroll">
+                <div class="image-placeholder">[ Custom Leather Scabbard ]</div>
+                <h3>Bespoke Rifle Scabbard</h3>
+                <p class="product-price">$185.00</p>
+                <p style="font-size: 0.9rem; opacity: 0.85; margin-bottom: 20px;">Saddle-stitch construction, reinforced harness straps, weather-sealed coat.</p>
+                <a href="custom.html" class="btn">Configure Sizing</a>
             </div>
         </div>
     </section>
@@ -54,6 +66,7 @@
         <div class="footer-top">
             <div class="footer-brand">
                 <h3>Dandy Saddlery</h3>
+                <p>Handmade. Built to Last.</p>
                 <div class="social-links">
                     <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">YouTube</a>
                 </div>
@@ -63,15 +76,27 @@
                     <h4>Explore</h4>
                     <ul>
                         <li><a href="products.html">Products</a></li>
-                        <li><a href="custom.html">Custom Form</a></li>
+                        <li><a href="custom.html">Custom Orders</a></li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Jason Wubbold</p>
+            <p>&copy; 2026 Jaxon Webster</p>
         </div>
     </footer>
 
+    <script>
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const scrollObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.animate-on-scroll').forEach(el => scrollObserver.observe(el));
+    </script>
 </body>
 </html>

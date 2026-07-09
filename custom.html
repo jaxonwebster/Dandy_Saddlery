@@ -3,13 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Orders | Dandy Saddlery</title>
+    <title>Start a Custom Build | Dandy Saddlery</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="nav-logo"><h1>Dandy Saddlery</h1></div>
+        <div class="nav-logo">
+            <h1>Dandy <span>Saddlery</span></h1>
+        </div>
+        
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </label>
+        
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="products.html">Products</a></li>
@@ -21,47 +31,61 @@
 
     <section class="section-padding">
         <div class="section-header">
-            <h2>Bespoke Custom Orders</h2>
-            <p style="max-width: 600px; margin: 15px auto 0; color: var(--text-muted);">We don't use standard algorithmic checkouts. Fill out your build specifications below, and our leather master will coordinate your build template directly.</p>
+            <p>Ditch the Automated Checkout</p>
+            <h2>Bespoke Build Submission</h2>
         </div>
 
         <div class="form-container">
+            <p style="margin-bottom: 30px; font-size: 0.95rem; opacity: 0.85; text-align: center;">We build real gear tailored precisely to you. Please provide your measurements, desired leather shade (natural, medium brown, dark espresso), and specific hardware finishes so we can build your tailored blueprint.</p>
+            
             <form action="#" method="POST">
                 <div class="form-group">
-                    <label for="name">Your Full Name</label>
-                    <input type="text" id="name" name="name" required placeholder="John Doe">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required placeholder="John Carter">
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                    <input type="email" id="email" name="email" required placeholder="john@ranchlife.com">
                 </div>
 
                 <div class="form-group">
-                    <label for="gear-type">Project Focus</label>
-                    <select id="gear-type" name="gear-type">
+                    <label for="type">Project Type</label>
+                    <select id="type" name="type">
                         <option value="saddle">Custom Tree Saddle</option>
-                        <option value="belt">Heavy Duty Leather Belt</option>
-                        <option value="holster">Field Holster / Scabbard</option>
-                        <option value="other">Bespoke EDC Item</option>
+                        <option value="belt">Heavy Heritage Belt (Specify size below)</option>
+                        <option value="scabbard">Field Scabbard / Holster</option>
+                        <option value="other">Bespoke Project</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="specs">Sizing Measurements & Custom Tooling Requests</label>
-                    <textarea id="specs" name="specs" rows="6" placeholder="Please list your dimensions, leather type choices, or stamping preferences..."></textarea>
+                    <label for="details">Build Dimensions & Tooling Requests</label>
+                    <textarea id="details" name="details" rows="6" placeholder="Example: Waist size (36 inches), Dark Tan oil, block stamping initials, or horse fitting notes..."></textarea>
                 </div>
 
-                <button type="submit" class="btn" style="width: 100%;">Submit Work Order Request</button>
+                <button type="submit" class="btn" style="width: 100%;">Submit Custom Project Request</button>
             </form>
         </div>
     </section>
 
     <footer class="main-footer">
         <div class="footer-bottom">
-            <p>&copy; 2026 Jason Wubbold</p>
+            <p>&copy; 2026 Jaxon Webster</p>
         </div>
     </footer>
 
+    <script>
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const scrollObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.animate-on-scroll').forEach(el => scrollObserver.observe(el));
+    </script>
 </body>
 </html>
