@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div id="chatbot-header">
                 <div class="chatbot-brand-status">
                     <h3>Dandy Support</h3>
-                    <span class="status-indicator">Online Bench Assistant</span>
+                    <span class="status-indicator">Online Leather Assistant</span>
                 </div>
                 <button id="chatbot-close-btn" aria-label="Close chat">&times;</button>
             </div>
