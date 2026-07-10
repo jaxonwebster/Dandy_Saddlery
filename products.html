@@ -36,37 +36,58 @@
         </div>
 
         <div class="product-grid">
+            <!-- PRODUCT 1 -->
             <div class="product-card animate-on-scroll" 
                  data-name="The Rancher Saddle" 
                  data-price="Custom Tree - Built to Order" 
                  data-desc="Individually customized tree build, featuring hand-tooled leaf patterns, premium weather-sealed oil finishes, and reinforced heavy-gauge saddle lining. Designed to deliver superior comfort and balance through long days across active trail work."
                  data-rev1="&ldquo;Contours perfectly to my position. Absolutely bombproof rig.&rdquo; &mdash; Dan K."
-                 data-rev2="&ldquo;Singular attention to detail on the leaf pattern tooling marks.&rdquo; &mdash; Wyatt L.">
-                <div class="image-placeholder">[ Premium Western Saddle ]</div>
+                 data-rev2="&ldquo;Singular attention to detail on the leaf pattern tooling marks.&rdquo; &mdash; Wyatt L."
+                 data-img1="images/leathermaking.avif"
+                 data-img2="images/saddle2.avif"
+                 data-img3="images/saddle3.avif">
+                 <!-- Added width, height, and object-fit styles to make it fill edge-to-edge -->
+                <div class="image-placeholder" style="overflow: hidden;">
+                    <img src="images/leathermaking.avif" alt="Premium Western Saddle" class="product-image" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
                 <h3>The Rancher Saddle</h3>
                 <p class="product-price">Custom Tree - Built to Order</p>
                 <button class="btn btn-details" style="width: 100%;">See Details</button>
             </div>
-
+            
+            <!-- PRODUCT 2 -->
             <div class="product-card animate-on-scroll" 
                  data-name="Classic Heritage Belt (1.5&quot;)" 
                  data-price="$95.00" 
                  data-desc="Heavy duty solid brass buckle configurations matching an premium 12oz vegetable-tanned harness leather strap hide sourcing. Beveled wax runtime edge layouts ensure comfortable dynamic everyday carrying durability."
                  data-rev1="&ldquo;The natural process is incredibly satisfying to watch patina.&rdquo; &mdash; Cole B."
-                 data-rev2="&ldquo;Thick, heavy leather that sets into shape effortlessly.&rdquo; &mdash; Marcus G.">
-                <div class="image-placeholder">[ Handstitched Heavy Belt ]</div>
+                 data-rev2="&ldquo;Thick, heavy leather that sets into shape effortlessly.&rdquo; &mdash; Marcus G."
+                 data-img1="images/belt1.avif"
+                 data-img2="images/belt2.avif"
+                 data-img3="images/belt3.avif">
+                 <!-- Applied same filling styles here -->
+                <div class="image-placeholder" style="overflow: hidden;">
+                    <img src="images/belt1.avif" alt="Handstitched Heavy Belt" class="product-image" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
                 <h3>Classic Heritage Belt (1.5")</h3>
                 <p class="product-price">$95.00</p>
                 <button class="btn btn-details" style="width: 100%;">See Details</button>
             </div>
 
+            <!-- PRODUCT 3 -->
             <div class="product-card animate-on-scroll" 
                  data-name="Bespoke Rifle Scabbard" 
                  data-price="$185.00" 
                  data-desc="Traditional heavy waxed line saddle-stitch layout, adjustable reinforcement mounting straps, and solid framing setup to guarantee comprehensive field protection across remote backcountry travel environments."
                  data-rev1="&ldquo;Secure, solid lockup on my frame. Keeps elements out perfectly.&rdquo; &mdash; Frank R."
-                 data-rev2="&ldquo;Smells like incredible, old-world workbench quality leather.&rdquo; &mdash; Vance P.">
-                <div class="image-placeholder">[ Custom Leather Scabbard ]</div>
+                 data-rev2="&ldquo;Smells like incredible, old-world workbench quality leather.&rdquo; &mdash; Vance P."
+                 data-img1="images/scabbard1.avif"
+                 data-img2="images/scabbard2.avif"
+                 data-img3="images/scabbard3.avif">
+                 <!-- Applied same filling styles here -->
+                <div class="image-placeholder" style="overflow: hidden;">
+                    <img src="images/scabbard1.avif" alt="Custom Leather Scabbard" class="product-image" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
                 <h3>Bespoke Rifle Scabbard</h3>
                 <p class="product-price">$185.00</p>
                 <button class="btn btn-details" style="width: 100%;">See Details</button>
@@ -145,11 +166,7 @@
             
             <div class="carousel-container">
                 <div class="carousel-viewport">
-                    <div class="carousel-track" id="carouselTrack">
-                        <div class="carousel-slide image-placeholder" style="background-color: #ece5da;">[ Main Angle Studio Shot ]</div>
-                        <div class="carousel-slide image-placeholder" style="background-color: #dfd7ca;">[ Detail Tooling Close-up ]</div>
-                        <div class="carousel-slide image-placeholder" style="background-color: #d2c8b8;">[ Workshop Production Action ]</div>
-                    </div>
+                    <div class="carousel-track" id="carouselTrack"></div>
                 </div>
                 <button class="carousel-btn carousel-prev" id="prevBtn">&#10094;</button>
                 <button class="carousel-btn carousel-next" id="nextBtn">&#10095;</button>
@@ -242,6 +259,17 @@
                     <div class="modal-review-item">${card.getAttribute('data-rev1')}</div>
                     <div class="modal-review-item">${card.getAttribute('data-rev2')}</div>
                 `;
+
+                // GRAB THE DISTINCT IMAGES AND LOAD THEM INTO THE CAROUSEL
+                const img1 = card.getAttribute('data-img1');
+                const img2 = card.getAttribute('data-img2');
+                const img3 = card.getAttribute('data-img3');
+
+                track.innerHTML = `
+                    <div class="carousel-slide image-placeholder"><img src="${img1}" alt="${currentItemName} view 1" class="product-image"></div>
+                    <div class="carousel-slide image-placeholder"><img src="${img2}" alt="${currentItemName} view 2" class="product-image"></div>
+                    <div class="carousel-slide image-placeholder"><img src="${img3}" alt="${currentItemName} view 3" class="product-image"></div>
+                `;
                 
                 currentCarouselIndex = 0;
                 updateCarouselLayout();
@@ -263,7 +291,7 @@
         });
 
         function updateCarouselLayout() {
-            track.style.transform = `translateX(-${currentCarouselIndex * 33.333}%)`;
+            track.style.transform = `translateX(-${currentCarouselIndex * 100}%)`; 
         }
 
         document.getElementById('modalCreateOrderBtn').addEventListener('click', () => {

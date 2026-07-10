@@ -616,15 +616,15 @@ a {
     color: var(--accent-color);
 }
 
-/* --- INTERACTIVE CAROUSEL POPUP --- */
+/* --- INTERACTIVE CAROUSEL POPUP (REDESIGNED) --- */
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(30, 25, 21, 0.5);
-    backdrop-filter: blur(4px);
+    background-color: rgba(30, 25, 21, 0.4);
+    backdrop-filter: blur(8px); /* Soft premium background blur */
     z-index: 2000;
     display: flex;
     align-items: center;
@@ -642,114 +642,154 @@ a {
 .modal-wrapper {
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
-    padding: 40px;
-    max-width: 600px;
+    max-width: 650px;
     width: 90%;
     max-height: 90vh;
     overflow-y: auto;
-    border-radius: 4px;
+    border-radius: 12px; /* Smooth, modernized rounding layout */
     position: relative;
-    transform: translateY(25px) scale(0.98);
+    transform: translateY(20px) scale(0.98);
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    box-shadow: 0 20px 50px rgba(30, 25, 21, 0.15);
+    display: flex;
+    flex-direction: column;
 }
 
 .modal-overlay.active .modal-wrapper {
     transform: translateY(0) scale(1);
 }
 
+/* Elegant minimalist exit button positioned out of image boundaries */
 .modal-close {
     position: absolute;
     top: 15px;
-    right: 20px;
-    font-size: 1.8rem;
+    right: 15px;
+    font-size: 1.2rem;
+    font-weight: 300;
     cursor: pointer;
-    background: none;
-    border: none;
+    background: rgba(254, 253, 251, 0.85);
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--border-color);
     color: var(--text-dark);
-    opacity: 0.5;
-    z-index: 10;
-    transition: opacity 0.2s ease;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2010;
+    transition: var(--transition-micro);
 }
 
 .modal-close:hover {
-    opacity: 1;
+    background: #ffffff;
+    transform: scale(1.05);
 }
 
-/* Carousel Layout */
+/* --- BULLETPROOF POPUP IMAGE VIEWPORT --- */
 .carousel-container {
     position: relative;
     width: 100%;
-    margin-bottom: 25px;
+    background-color: #ece5da; 
+    border-radius: 12px 12px 0 0;
+    /* Remove explicit overflow rules here so the track can dictate scale */
 }
 
 .carousel-viewport {
     width: 100%;
-    aspect-ratio: 16/10;
+    /* 1. Remove aspect-ratio entirely so the height automatically adapts */
+    aspect-ratio: auto; 
     overflow: hidden;
 }
 
 .carousel-track {
     display: flex;
-    width: 300%;
+    width: 100%;
     height: 100%;
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    align-items: center; /* Centers shorter images vertically if they vary in height */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .carousel-slide {
-    width: 33.333%;
-    height: 100%;
+    flex: 0 0 100%;
+    width: 100%;
+    /* Allows container to shrink or expand based on the natural image data inside */
+    height: auto; 
+    background-color: #ece5da;
 }
 
+/* 2. Absolute fit rule for the inner asset */
+.product-image {
+    width: 100%;
+    /* Forces the image to display 100% of its data with no cropping */
+    height: auto; 
+    object-fit: contain; 
+    display: block;
+}
+
+/* Refined Floating Overlay Arrow Controls */
 .carousel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(30, 25, 21, 0.7);
-    color: white;
-    border: none;
-    width: 36px;
-    height: 36px;
+    background: rgba(254, 253, 251, 0.8);
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--border-color);
+    color: var(--text-dark);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: var(--transition-micro);
     z-index: 2;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .carousel-btn:hover {
-    background: var(--accent-color);
+    background: #ffffff;
+    color: var(--accent-color);
+    transform: translateY(-50%) scale(1.05);
 }
 
-.carousel-prev { left: 10px; }
-.carousel-next { right: 10px; }
+.carousel-prev { left: 15px; }
+.carousel-next { right: 15px; }
+
+/* Shifted Padding rules exclusively inside lower text layout container */
+.modal-info {
+    padding: 35px 40px 40px;
+}
 
 .modal-info h2 {
     font-family: var(--font-heading);
-    font-size: 2rem;
-    margin-bottom: 5px;
+    font-size: 2.2rem;
+    line-height: 1.15;
+    margin-bottom: 4px;
 }
 
 .modal-desc {
-    margin: 15px 0;
+    margin: 20px 0 25px;
     font-size: 0.95rem;
+    color: var(--text-dark);
     opacity: 0.9;
+    line-height: 1.6;
 }
 
 .modal-reviews-section {
     border-top: 1px solid var(--border-color);
-    margin-top: 20px;
-    padding-top: 20px;
+    margin-top: 25px;
+    padding-top: 25px;
 }
 
 .modal-reviews-section h4 {
     font-family: var(--font-display);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     color: var(--accent-color);
 }
 
@@ -757,10 +797,11 @@ a {
     font-size: 0.9rem;
     font-style: italic;
     background-color: var(--bg-warm);
-    padding: 15px;
-    border-left: 2px solid var(--accent-color);
-    margin-bottom: 10px;
-    border-radius: 0 4px 4px 0;
+    padding: 16px 20px;
+    border-left: 3px solid var(--accent-color);
+    margin-bottom: 12px;
+    border-radius: 0 6px 6px 0;
+    line-height: 1.5;
 }
 
 /* --- LEATHER COLOR SWATCHES --- */
