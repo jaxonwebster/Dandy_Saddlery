@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div id="chatbot-window">
             <div id="chatbot-header">
                 <div class="chatbot-brand-status">
-                    <h3>Dandy Support</h3>
+                    <h3>Ask Dandy</h3>
                     <span class="status-indicator">Online Leather Assistant</span>
                 </div>
                 <button id="chatbot-close-btn" aria-label="Close chat">&times;</button>
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // FAQ Knowledge Base Configurations
     const faqData = {
-        greeting: "Welcome to our online leather assistant. I can help answer some common questions about our handcrafted leather goods. What are you looking to build today?",
+        greeting: "Hi, I'm Dandy, your online leather assistant. I can help answer some common questions about our handcrafted leather goods. What are you looking to build today?",
         faqs: [
             {
                 id: 1,
