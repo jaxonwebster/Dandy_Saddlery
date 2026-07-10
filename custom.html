@@ -55,6 +55,7 @@
                         <option value="saddle">Custom Tree Saddle</option>
                         <option value="belt">Heavy Heritage Belt (Specify size below)</option>
                         <option value="scabbard">Field Scabbard / Holster</option>
+                        <option value="wallet">Bespoke Personalized Wallet</option>
                         <option value="other">Bespoke Project</option>
                     </select>
                 </div>
@@ -147,13 +148,18 @@
                 const typeField = document.getElementById('type');
                 
                 if (detailsField) {
-                    detailsField.value = `Hello! I would like to build and configure a blueprint framework for the product: "${savedItem}". Please help me coordinate precision custom sizing configurations.`;
+                    if (savedItem.startsWith("Custom Wallet:")) {
+                        detailsField.value = `Hello! I used the visual configurator tools to style a custom leather item layout:\n\n${savedItem}\n\nPlease help me construct this personalized build.`;
+                    } else {
+                        detailsField.value = `Hello! I would like to build and configure a blueprint framework for the product: "${savedItem}". Please help me coordinate precision custom sizing configurations.`;
+                    }
                 }
                 
                 if (typeField) {
                     if (savedItem.includes("Saddle")) typeField.value = "saddle";
                     else if (savedItem.includes("Belt")) typeField.value = "belt";
                     else if (savedItem.includes("Scabbard")) typeField.value = "scabbard";
+                    else if (savedItem.includes("Wallet")) typeField.value = "wallet";
                 }
                 localStorage.removeItem('dandy_order_transfer');
             }

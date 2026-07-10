@@ -29,7 +29,7 @@
         </ul>
     </nav>
 
-    <section class="section-padding">
+    <section class="section-padding" style="padding-bottom: 40px;">
         <div class="section-header">
             <p>Our Core Catalog</p>
             <h2>All Leather Gear</h2>
@@ -70,6 +70,71 @@
                 <h3>Bespoke Rifle Scabbard</h3>
                 <p class="product-price">$185.00</p>
                 <button class="btn btn-details" style="width: 100%;">See Details</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background-color: #f2ede4; border-top: 1px solid var(--border-color);">
+        <div class="section-header" style="margin-bottom: 35px;">
+            <p>Interactive Workbench</p>
+            <h2>Build Your Wallet</h2>
+        </div>
+
+        <div class="wallet-builder-container">
+            <div class="builder-visual-pane">
+                <div class="wallet-canvas-wrap">
+                    <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="5" y="5" width="190" height="130" rx="8" id="walletLeatherMain" class="wallet-path-leather" fill="#e2ba8f" stroke="#1e1915" stroke-width="1.5" />
+                        <path d="M 5,5 L 85,5 L 85,135 L 5,135 Z" id="walletLeatherLeft" class="wallet-path-leather" fill="#d0aa80" opacity="0.9"/>
+                        <path d="M 195,5 L 115,5 L 115,45 C 135,50 145,35 195,45 Z" id="walletLeatherRight" class="wallet-path-leather" fill="#c29d75" opacity="0.9"/>
+                        
+                        <rect x="10" y="10" width="180" height="120" rx="6" id="walletStitchLine" class="wallet-path-stitch" stroke="#fcfaf2" stroke-width="1.2" stroke-dasharray="4,3" fill="none" />
+                        
+                        <text x="155" y="115" id="walletMonogramText" class="wallet-monogram-text" text-anchor="middle">XYZ</text>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="builder-controls-pane">
+                <h3>The Minimalist Bifold</h3>
+                <p class="builder-tagline">Tailor Your Daily Carry</p>
+                
+                <div class="options-block">
+                    <h4>1. Leather Hide Tone</h4>
+                    <div class="swatch-container" style="margin-top:0;">
+                        <label class="swatch-option">
+                            <input type="radio" name="wl_color" value="#e2ba8f" data-left="#d0aa80" data-right="#c29d75" data-name="Natural Tan" checked>
+                            <span class="swatch-ball swatch-natural"></span>
+                            <span class="swatch-label-text">Natural</span>
+                        </label>
+                        <label class="swatch-option">
+                            <input type="radio" name="wl_color" value="#8b5a2b" data-left="#734922" data-right="#613e1c" data-name="Medium Brown">
+                            <span class="swatch-ball swatch-brown"></span>
+                            <span class="swatch-label-text">Brown</span>
+                        </label>
+                        <label class="swatch-option">
+                            <input type="radio" name="wl_color" value="#3d2b1f" data-left="#2d2017" data-right="#1f1610" data-name="Dark Espresso">
+                            <span class="swatch-ball swatch-espresso"></span>
+                            <span class="swatch-label-text">Espresso</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="options-block">
+                    <h4>2. Thread Lining</h4>
+                    <div class="swatch-group">
+                        <div class="thread-swatch ts-cream active" data-color="#fcfaf2" data-name="Linen Cream"></div>
+                        <div class="thread-swatch ts-amber" data-color="#d49a46" data-name="Saddle Amber"></div>
+                        <div class="thread-swatch ts-dark" data-color="#3d2b1f" data-name="Rich Charcoal"></div>
+                    </div>
+                </div>
+
+                <div class="options-block">
+                    <h4>3. Custom Stamped Initials</h4>
+                    <input type="text" id="monogramInput" class="builder-input" maxlength="3" value="XYZ" placeholder="3 Letters Max">
+                </div>
+                
+                <button class="btn" id="submitCustomWalletBtn" style="width:100%; margin-top:10px;">Queue Configured Build</button>
             </div>
         </div>
     </section>
@@ -173,16 +238,13 @@
                 document.getElementById('modalPrice').innerText = card.getAttribute('data-price');
                 document.getElementById('modalDesc').innerText = card.getAttribute('data-desc');
                 
-                // Content population injection logic
                 reviewsContainer.innerHTML = `
                     <div class="modal-review-item">${card.getAttribute('data-rev1')}</div>
                     <div class="modal-review-item">${card.getAttribute('data-rev2')}</div>
                 `;
                 
-                // Initialize carousel state variables
                 currentCarouselIndex = 0;
                 updateCarouselLayout();
-                
                 modal.classList.add('active');
             });
         });
@@ -190,7 +252,6 @@
         document.getElementById('modalCloseBtn').addEventListener('click', () => modal.classList.remove('active'));
         modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('active'); });
 
-        // Carousel click handler setup
         document.getElementById('nextBtn').addEventListener('click', () => {
             currentCarouselIndex = (currentCarouselIndex + 1) % totalSlides;
             updateCarouselLayout();
@@ -205,12 +266,52 @@
             track.style.transform = `translateX(-${currentCarouselIndex * 33.333}%)`;
         }
 
-        // Pipeline transfer execution routing hook
         document.getElementById('modalCreateOrderBtn').addEventListener('click', () => {
             if(currentItemName) {
                 localStorage.setItem('dandy_order_transfer', currentItemName);
                 window.location.href = "custom.html";
             }
+        });
+
+        // WALLET VISUALIZER EVENT ATTACHMENT
+        let configuredLeather = "Natural Tan";
+        let configuredThread = "Linen Cream";
+
+        document.querySelectorAll('input[name="wl_color"]').forEach(input => {
+            input.addEventListener('change', (e) => {
+                const mainColor = e.target.value;
+                const leftColor = e.target.getAttribute('data-left');
+                const rightColor = e.target.getAttribute('data-right');
+                configuredLeather = e.target.getAttribute('data-name');
+
+                document.getElementById('walletLeatherMain').style.fill = mainColor;
+                document.getElementById('walletLeatherLeft').style.fill = leftColor;
+                document.getElementById('walletLeatherRight').style.fill = rightColor;
+            });
+        });
+
+        document.querySelectorAll('.thread-swatch').forEach(swatch => {
+            swatch.addEventListener('click', (e) => {
+                document.querySelectorAll('.thread-swatch').forEach(s => s.classList.remove('active'));
+                e.target.classList.add('active');
+                
+                const threadColor = e.target.getAttribute('data-color');
+                configuredThread = e.target.getAttribute('data-name');
+                document.getElementById('walletStitchLine').style.stroke = threadColor;
+            });
+        });
+
+        const monogramInput = document.getElementById('monogramInput');
+        monogramInput.addEventListener('input', (e) => {
+            let value = e.target.value.toUpperCase();
+            document.getElementById('walletMonogramText').innerText = value || "---";
+        });
+
+        document.getElementById('submitCustomWalletBtn').addEventListener('click', () => {
+            const finalMonogram = monogramInput.value.toUpperCase() || "None";
+            const summaryString = `Custom Wallet: [Leather: ${configuredLeather}, Stitching: ${configuredThread}, Monogram Stamp: "${finalMonogram}"]`;
+            localStorage.setItem('dandy_order_transfer', summaryString);
+            window.location.href = "custom.html";
         });
 
         // Scroll Observer Integration

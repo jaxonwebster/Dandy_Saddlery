@@ -30,12 +30,12 @@
     </nav>
 
     <header class="hero" style="background-image: url('images/leathermaking.avif');">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <h2>Welcome to Dandy Saddlery</h2>
-        <p>Premium leather goods handcrafted in Utah. Built for lifetime durability with a singular focus on traditional craftsmanship.</p>
-    </div>
-</header>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2>Welcome to Dandy Saddlery</h2>
+            <p>Premium leather goods handcrafted in Utah. Built for lifetime durability with a singular focus on traditional craftsmanship.</p>
+        </div>
+    </header>
 
     <section class="value-props">
         <div class="prop-card animate-on-scroll">
@@ -82,13 +82,30 @@
         </div>
     </section>
 
-    <section class="section-padding" style="background-color: var(--bg-card); border-top: 1px solid var(--border-color);">
+    <section class="stats-counter-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3 class="counter-val" data-target="5">0</h3>
+                <p>Years in Business</p>
+            </div>
+            <div class="stat-item">
+                <h3 class="counter-val" data-target="1500">0</h3>
+                <p>Items Sold</p>
+            </div>
+            <div class="stat-item">
+                <h3 class="counter-val" data-target="20">0</h3>
+                <p>Product Life-Span</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background-color: var(--bg-warm);">
         <div class="best-seller-split">
             <div class="image-placeholder">
                 [ Best Selling Product Image Placeholder ]
             </div>
             <div>
-                <p style="color: var(--accent-color); font-family: var(--font-display); font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase;">Our Most Popular Build</p>
+                <p style="color: var(--accent-color); font-family: var(--font-display); font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase;">Most Popular</p>
                 <h2 style="margin: 10px 0 20px;">The Heritage Field Belt</h2>
                 <p style="color: var(--text-dark); margin-bottom: 25px;">Carefully calculated, heavy-duty 1.5" build featuring hand-beveled edges, solid brass hardware, and thick saddle-grade leather. Perfect for the ranch or everyday wear.</p>
                 <ul style="list-style: square; padding-left: 20px; color: var(--text-dark); margin-bottom: 10px;">
@@ -161,6 +178,42 @@
             });
         }, observerOptions);
         document.querySelectorAll('.animate-on-scroll').forEach(el => scrollObserver.observe(el));
+
+        // INTUITIVE HOOKS FOR DRIVING NUMERICAL INCREMENTS
+        const countNumbersUp = () => {
+            const counters = document.querySelectorAll('.counter-val');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 1500; // Total runtime milliseconds
+                const startTime = performance.now();
+
+                const updateCount = (currentTime) => {
+                    const elapsedTime = currentTime - startTime;
+                    const progress = Math.min(elapsedTime / duration, 1);
+                    // Standard easeOutQuad curve for organic premium pacing 
+                    const easeProgress = progress * (2 - progress);
+                    const currentVal = Math.floor(easeProgress * target);
+                    
+                    counter.innerText = currentVal.toLocaleString() + (target === 100 ? "+" : "");
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        counter.innerText = target.toLocaleString() + (target === 100 ? "+" : "");
+                    }
+                };
+                requestAnimationFrame(updateCount);
+            });
+        };
+
+        const counterSection = document.querySelector('.stats-counter-section');
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            if(entries[0].isIntersecting) {
+                countNumbersUp();
+                observer.unobserve(counterSection);
+            }
+        }, { threshold: 0.3 });
+        if(counterSection) counterObserver.observe(counterSection);
     </script>
     <script src="chatbot.js"></script>
 </body>
