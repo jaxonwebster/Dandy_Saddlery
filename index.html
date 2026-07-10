@@ -23,21 +23,31 @@
         <ul class="nav-links">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="products.html">Products</a></li>
-            <li><a href="custom.html">Orders</a></li>
+            <li><a href="custom.html">Create Order</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="reviews.html">Reviews</a></li>
         </ul>
     </nav>
 
-    <header class="hero" style="background-image: url('images/leathermaking.avif');">
+    <header class="hero" style="background-image: url('images/horsehero.jpg');">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h2>Welcome to Dandy Saddlery</h2>
             <p>Handcrafted leather goods, built for lifetime durability.</p>
+            
+            <!-- Hero Action Buttons -->
+            <div class="hero-actions" style="margin-top: 25px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="products.html" class="btn">Explore Products</a>
+                <a href="custom.html" class="btn btn-secondary" style="background-color: transparent; border: 2px solid #ffffff; color: #ffffff;">Custom Orders</a>
+            </div>
         </div>
     </header>
 
-    <section class="value-props">
+    <!-- ==========================================
+         SECTION 1: MADE IN THE USA (VALUE PROPS)
+         Background: Clean White (#ffffff)
+         ========================================== -->
+    <section class="value-props" style="background-color: #ffffff;">
         <div class="prop-card animate-on-scroll">
             <div class="num-badge">01</div>
             <h3>Made in USA</h3>
@@ -55,7 +65,57 @@
         </div>
     </section>
 
-    <section class="section-padding">
+    <!-- ==========================================
+         SECTION 2: POPULAR ITEM (BEST SELLER SPLIT)
+         Background: Warm Cream (var(--bg-warm))
+         Lines Removed from this block
+         ========================================== -->
+    <section class="section-padding" style="background-color: var(--bg-warm);">
+        <div class="best-seller-split">
+            <div class="image-placeholder" style="overflow: hidden;">
+                [ Best Selling Product Image Placeholder ]
+            </div>
+            <div>
+                <p style="color: var(--accent-color); font-family: var(--font-display); font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase;">Most Popular</p>
+                <h2 style="margin: 10px 0 20px;">The Heritage Field Belt</h2>
+                <p style="color: var(--text-dark); margin-bottom: 25px;">Carefully calculated, heavy-duty 1.5" build featuring hand-beveled edges, solid brass hardware, and thick saddle-grade leather. Perfect for the ranch or everyday wear.</p>
+                <ul style="list-style: square; padding-left: 20px; color: var(--text-dark); margin-bottom: 10px;">
+                    <li style="margin-bottom: 8px;">12oz Wickett & Craig Premium Strap</li>
+                    <li style="margin-bottom: 8px;">Hand-Sewn Waxed Linen Threading</li>
+                    <li>Easily Customizable Finish Styles</li>
+                </ul>
+                <a href="products.html" class="btn">See Product Details</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: STATS COUNTER
+         Background: Clean White (#ffffff)
+         ========================================== -->
+    <section class="stats-counter-section" style="background-color: #ffffff;">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3 class="counter-val" data-target="5">0</h3>
+                <p>Years in Business</p>
+            </div>
+            <div class="stat-item">
+                <h3 class="counter-val" data-target="1500">0</h3>
+                <p>Items Sold</p>
+            </div>
+            <div class="stat-item">
+                <h3 class="counter-val" data-target="20">0</h3>
+                <p>Product Life-Span</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: WHAT CUSTOMERS SAY (REVIEWS)
+         Background: Warm Cream (var(--bg-warm))
+         Lines Removed from this block
+         ========================================== -->
+    <section class="section-padding" style="background-color: var(--bg-warm);">
         <div class="section-header">
             <p>Don't just take our word for it</p>
             <h2>What Our Customers Say</h2>
@@ -79,42 +139,6 @@
         </div>
         <div style="text-align: center; margin-top: 40px;">
             <a href="reviews.html" class="btn">View All Reviews</a>
-        </div>
-    </section>
-
-    <section class="stats-counter-section">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <h3 class="counter-val" data-target="5">0</h3>
-                <p>Years in Business</p>
-            </div>
-            <div class="stat-item">
-                <h3 class="counter-val" data-target="1500">0</h3>
-                <p>Items Sold</p>
-            </div>
-            <div class="stat-item">
-                <h3 class="counter-val" data-target="20">0</h3>
-                <p>Product Life-Span</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-padding" style="background-color: var(--bg-warm);">
-        <div class="best-seller-split">
-            <div class="image-placeholder">
-                [ Best Selling Product Image Placeholder ]
-            </div>
-            <div>
-                <p style="color: var(--accent-color); font-family: var(--font-display); font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase;">Most Popular</p>
-                <h2 style="margin: 10px 0 20px;">The Heritage Field Belt</h2>
-                <p style="color: var(--text-dark); margin-bottom: 25px;">Carefully calculated, heavy-duty 1.5" build featuring hand-beveled edges, solid brass hardware, and thick saddle-grade leather. Perfect for the ranch or everyday wear.</p>
-                <ul style="list-style: square; padding-left: 20px; color: var(--text-dark); margin-bottom: 10px;">
-                    <li style="margin-bottom: 8px;">12oz Wickett & Craig Premium Strap</li>
-                    <li style="margin-bottom: 8px;">Hand-Sewn Waxed Linen Threading</li>
-                    <li>Easily Customizable Finish Styles</li>
-                </ul>
-                <a href="products.html" class="btn">See Product Details</a>
-            </div>
         </div>
     </section>
 

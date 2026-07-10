@@ -1427,3 +1427,8 @@ a {
 #faq-drawer-toggle.active .caret-icon {
     transform: rotate(180deg);
 }
+.btn-secondary:hover {
+    background-color: #ffffff !important;
+    color: #1e1915 !important; /* Matches your dark text/leather tone */
+    transition: all 0.3s ease;
+}
