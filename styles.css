@@ -253,15 +253,20 @@ a {
 
 /* --- STATS COUNTER GRID --- */
 .stats-counter-section {
-    background-color: var(--bg-card); /* Changed from dark espresso to ivory */
-    color: var(--text-dark);          /* Changed from light text to muted dark text */
-    padding: 60px 8%;
+    background-color: var(--bg-card); 
+    color: var(--text-dark);          
+    /* Force exact top/bottom padding symmetry */
+    padding: 80px 8%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 40px;
+    width: 100%;
     max-width: 1000px;
     margin: 0 auto;
     text-align: center;
@@ -270,17 +275,22 @@ a {
 .stat-item h3 {
     font-family: var(--font-heading);
     font-size: 3rem;
+    /* Force strict line-height matching the font size to clear out phantom space */
+    line-height: 1; 
     font-weight: 400;
-    color: var(--primary-color); /* Changed from light text to the rich brand off-black */
-    margin-bottom: 5px;
+    color: var(--primary-color); 
+    /* Explicit margin values to secure absolute spacing balance */
+    margin: 0 0 12px 0; 
 }
 
 .stat-item p {
     font-family: var(--font-display);
     font-size: 0.8rem;
+    line-height: 1.2;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--accent-color); /* Keeps the elegant saddle-tan color for labels */
+    color: var(--accent-color);
+    margin: 0;
 }
 
 /* --- SECTIONS --- */
