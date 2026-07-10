@@ -3,11 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Story | Dandy Saddlery</title>
+    <title>The Gallery | Dandy Saddlery</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Force explicit editorial white backdrop reset */
+        body {
+            background-color: #ffffff !important;
+        }
+
+        /* 4-Column Borderless Minimalist Layout Grid */
+        .instagram-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 40px;
+        }
+        
+        .gallery-item-card {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border: none !important;
+            background: none !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+        }
+
+        .gallery-item-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: var(--transition-smooth);
+        }
+
+        /* Clean subtle scale effect on hover without any overlays */
+        .gallery-item-card:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .instagram-gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .instagram-gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+        }
+    </style>
 </head>
 <body>
 
+    <!-- --- NAVIGATION BAR --- -->
     <nav class="navbar">
         <a href="index.html" class="nav-logo">
             <h1>Dandy <span>Saddlery</span></h1>
@@ -24,30 +78,70 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="products.html">Products</a></li>
             <li><a href="custom.html">Create Order</a></li>
-            <li><a href="about.html" class="active">About Us</a></li>
+            <li><a href="about.html">About Us</a></li>
             <li><a href="reviews.html">Reviews</a></li>
         </ul>
     </nav>
 
-    <section class="section-padding">
+    <!-- --- GALLERY SECTION --- -->
+    <section class="section-padding" style="background-color: #ffffff;">
         <div class="section-header">
-            <p>Heirloom Legacy</p>
-            <h2>Meet the Makers</h2>
+            <p>See what we're up to!</p>
+            <h2>Photo Gallery</h2>
         </div>
 
-        <div class="about-layout text-center">
-            <div class="image-placeholder" style="aspect-ratio: 16/9; margin-bottom: 40px;">
-                [ Action Shot of Raw Leather Crafting ]
+        <!-- --- 4-COLUMN PURE IMAGE GRID --- -->
+        <div class="instagram-gallery-grid">
+            
+            <!-- ITEM 1 -->
+            <div class="gallery-item-card animate-on-scroll">
+                <img src="images/holster.jpg" alt="Dandy Saddlery Showcase 1">
             </div>
-            <p class="about-lead">
-                Dandy Saddlery was born from the spirit of our childhood donkey, "Dandy." Growing up, he patienty carried us through every wild, sun-drenched cowboy adventure we could dream up. He was more than a pet—he was the anchor of our childhood.
-            </p>
-            <p>
-                Today, Dandy is still kicking strong, serving as a living reminder of the resilience and enduring legacy we build into every piece of leather we create. It's why we proudly stamp his name onto the back of our custom, signature leather products.
-            </p>
+
+            <!-- ITEM 2 -->
+            <div class="gallery-item-card animate-on-scroll">
+                <img src="images/hats.jpg" alt="Dandy Saddlery Showcase 2">
+            </div>
+
+            <!-- ITEM 3 -->
+            <div class="gallery-item-card animate-on-scroll">
+                <img src="images/hide.jpg" alt="Dandy Saddlery Showcase 3">
+            </div>
+
+            <!-- ITEM 4 -->
+            <div class="gallery-item-card animate-on-scroll">
+                <img src="images/hair.jpg" alt="Dandy Saddlery Showcase 4">
+            </div>
+
+            <!-- ITEM 5 -->
+            <div class="gallery-item-card animate-on-scroll">
+                <img src="images/tools.jpg" alt="Dandy Saddlery Showcase 5">
+            </div>
+
+            <!-- ITEM 6 -->
+            <div class="gallery-item-card animate-on-scroll">
+                <img src="images/bridle1.avif" alt="Dandy Saddlery Showcase 6">
+            </div>
+
+            <!-- ITEM 7 -->
+            <div class="gallery-item-card animate-on-scroll">
+                <img src="images/journal1.avif" alt="Dandy Saddlery Showcase 7">
+            </div>
+
+            <!-- ITEM 8 -->
+            <div class="gallery-item-card animate-on-scroll">
+                <img src="images/straps1.avif" alt="Dandy Saddlery Showcase 8">
+            </div>
+
+            <!-- ITEM 9 -->
+            <div class="gallery-item-card animate-on-scroll">
+                <img src="images/valet1.avif" alt="Dandy Saddlery Showcase 9">
+            </div>
+
         </div>
     </section>
 
+    <!-- --- PREMIUM FOOTER --- -->
     <footer class="main-footer">
         <div class="footer-top">
             <div class="footer-brand">
@@ -98,6 +192,7 @@
         </div>
     </footer>
 
+    <!-- --- SCROLL OBSERVER --- -->
     <script>
         const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
         const scrollObserver = new IntersectionObserver((entries, observer) => {
