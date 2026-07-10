@@ -1432,26 +1432,41 @@ a {
     color: #1e1915 !important; /* Matches your dark text/leather tone */
     transition: all 0.3s ease;
 }
-/* Mobile only styles for balanced, elegant side-by-side hero buttons */
-@media (max-width: 480px) {
-    .hero-actions {
-        flex-direction: row !important;       /* Side-by-side alignment */
-        justify-content: center !important;   /* Centered together */
-        gap: 6px !important;                  /* Snug, intentional gap */
-        margin-top: 15px !important;
-    }
+/* ==========================================================================
+   GLOBAL HERO BUTTON TRACK FIX (Locks side-by-side, forced identical sizing)
+   ========================================================================== */
+.hero-actions {
+    display: flex !important;
+    flex-direction: row !important;       /* Locks them side-by-side everywhere */
+    justify-content: center !important;   /* Centers the group on the screen */
+    align-items: center !important;       /* Aligns heights perfectly */
+    gap: 12px !important;                 /* Uniform spacing between them */
+    margin-top: 25px !important;
+    width: 100% !important;
+}
 
-    .hero-actions .btn, 
-    .hero-actions .btn-secondary {
-        /* Slightly thicker vertical padding for a clean, premium tab shape */
-        padding: 7px 14px !important;         
-        font-size: 0.78rem !important;        /* Marginally scaled up for easier reading */
-        font-weight: 500 !important;          
-        
-        width: auto !important;               
-        min-width: 120px !important;          /* Gives both buttons a matching, clean rectangular anchor */
-        text-align: center !important;
-        border-width: 1px !important;         
-        letter-spacing: 0.5px !important;     
-    }
+.hero-actions .btn, 
+.hero-actions .btn-secondary {
+    display: inline-block !important;
+    box-sizing: border-box !important;    /* Ensures borders don't alter height math */
+    
+    /* Perfect dimensional alignment */
+    height: 42px !important;              
+    line-height: 24px !important;         
+    padding: 8px 0 !important;            /* Replaced side padding with 0 so text centers flawlessly */
+    
+    /* Typography settings */
+    font-size: 0.85rem !important;        
+    font-weight: 500 !important;
+    letter-spacing: 0.5px !important;
+    text-anchor: middle !important;
+    text-align: center !important;
+    
+    /* Strict text line locks */
+    white-space: nowrap !important;       /* Absolutely forces text to stay on one single line */
+    
+    /* FIXED IDENTICAL SIZING (Safeguards identical twins on all screens) */
+    width: 170px !important;              
+    min-width: 170px !important;          
+    max-width: 170px !important;          
 }
