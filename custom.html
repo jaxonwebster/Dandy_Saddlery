@@ -86,7 +86,7 @@
                     <textarea id="details" name="details" rows="6" placeholder="Example: Waist size (36 inches), block stamping initials, or horse fitting notes..."></textarea>
                 </div>
 
-                <button type="submit" class="btn" style="width: 100%;">Submit Custom Project Request</button>
+                <button type="submit" class="btn" style="width: 100%;">Submit Custom Request</button>
             </form>
         </div>
     </section>
@@ -150,7 +150,7 @@
                 
                 if (detailsField) {
                     if (savedItem.startsWith("Custom Wallet:")) {
-                        detailsField.value = `Hello! I used the visual configurator tools to style a custom leather item layout:\n\n${savedItem}\n\nPlease help me construct this personalized build.`;
+                        detailsField.value = `Hello! I used the wallet builder tool to style a custom leather item:\n\n${savedItem}\n\n.`;
                     } else {
                         detailsField.value = `Hello! I would like to build and configure a blueprint framework for the product: "${savedItem}". Please help me coordinate precision custom sizing configurations.`;
                     }
