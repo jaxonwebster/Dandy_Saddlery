@@ -1479,7 +1479,10 @@ a {
     flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto 40px;
-    padding: 12px 0;
+    
+    /* FIX: 0px on top, 12px on the sides/bottom to eliminate internal top space */
+    padding: 0 0 12px; 
+    
     background-color: transparent;
     gap: 12px;
 }
