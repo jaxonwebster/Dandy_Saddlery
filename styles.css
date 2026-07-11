@@ -1433,42 +1433,72 @@ a {
     transition: all 0.3s ease;
 }
 /* ==========================================================================
-   GLOBAL HERO BUTTON TRACK FIX (Locks side-by-side, forced identical sizing)
+   UNIFIED HERO ACTION BUTTON PLATFORM (Fluid & Balanced)
    ========================================================================== */
 .hero-actions {
-    display: flex !important;
-    flex-direction: row !important;       /* Locks them side-by-side everywhere */
-    justify-content: center !important;   /* Centers the group on the screen */
-    align-items: center !important;       /* Aligns heights perfectly */
-    gap: 12px !important;                 /* Uniform spacing between them */
-    margin-top: 25px !important;
-    width: 100% !important;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;           /* Keeps them side-by-side everywhere */
+    justify-content: center;
+    align-items: center;
+    gap: 15px;                   /* Slightly wider luxury gap */
+    margin-top: 25px;
+    width: 100%;
 }
 
 .hero-actions .btn, 
 .hero-actions .btn-secondary {
-    display: inline-block !important;
-    box-sizing: border-box !important;    /* Ensures borders don't alter height math */
+    box-sizing: border-box;
+    display: inline-flex;        /* Switched to flex to handle centering text perfectly */
+    align-items: center;
+    justify-content: center;
     
-    /* Perfect dimensional alignment */
-    height: 42px !important;              
-    line-height: 24px !important;         
-    padding: 8px 0 !important;            /* Replaced side padding with 0 so text centers flawlessly */
+    height: 46px;                /* Slightly taller for a more premium look */
+    padding: 0 28px;             /* FIX: Generous, matching breathing room on the sides */
     
-    /* Typography settings */
-    font-size: 0.85rem !important;        
-    font-weight: 500 !important;
-    letter-spacing: 0.5px !important;
-    text-anchor: middle !important;
-    text-align: center !important;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-align: center;
+    white-space: nowrap;         
     
-    /* Strict text line locks */
-    white-space: nowrap !important;       /* Absolutely forces text to stay on one single line */
+    /* FLEXIBILITY OVERRIDES */
+    width: auto;                 /* Removes the rigid pixel box */
+    min-width: 145px;            /* Ensures neither button feels like a tiny stub */
     
-    /* FIXED IDENTICAL SIZING (Safeguards identical twins on all screens) */
-    width: 170px !important;              
-    min-width: 170px !important;          
-    max-width: 170px !important;          
+    border-radius: 2px;
+    transition: all 0.25s ease;
+}
+
+/* Clear definitions for the secondary transparent outline look */
+.hero-actions .btn-secondary {
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+}
+
+.hero-actions .btn-secondary:hover {
+    background-color: #ffffff;
+    color: var(--primary-color, #1e1915);
+}
+
+/* ==========================================================
+   MOBILE HERO BUTTON COMPRESSION (Prevents screen bleeding)
+   ========================================================== */
+@media (max-width: 480px) {
+    .hero-actions {
+        gap: 8px; /* Slightly tightens the gap between buttons on small phones */
+    }
+
+    .hero-actions .btn, 
+    .hero-actions .btn-secondary {
+        height: 40px;         /* Slightly shorter baseline tracking */
+        padding: 0 14px;      /* Halves side padding so buttons scale down neatly */
+        font-size: 0.72rem;   /* Marginally shrinks text so letters don't clip */
+        letter-spacing: 1px;  /* Tightens letter space tracking for screen compliance */
+        min-width: 130px;     /* Drops minimum floor width safely down to fit 320px grids */
+    }
 }
 /* ==========================================
    CLEAN MINIMALIST TOGGLE CONTROLS BAR WITH BADGES
