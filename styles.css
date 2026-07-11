@@ -1708,3 +1708,16 @@ a {
         font-size: 0.75rem !important;
     }
 }
+/* ==========================================
+   PRODUCT CARD HEIGHT & BUTTON ALIGNMENT FIX
+   ========================================== */
+.product-grid .product-card {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    height: 100% !important; /* Force cards in the same row to be equal height */
+}
+
+.product-grid .product-card .btn-details {
+    margin-top: auto !important; /* Anchors the button to the uniform bottom edge */
+}
