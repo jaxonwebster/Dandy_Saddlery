@@ -35,37 +35,88 @@
             <h2>All Leather Gear</h2>
         </div>
 
-        <div class="product-grid">
-            <!-- PRODUCT 1 -->
+        <!-- Clean Control Button Wrapper & Dynamic Badges Stack -->
+        <div class="catalog-action-bar">
+            <button class="btn-toggle-panel" id="openPanelBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+                Filter & Sort
+            </button>
+            <div class="active-badges-container" id="activeBadgesContainer">
+                <!-- Badges injected dynamically via JS -->
+            </div>
+        </div>
+
+        <!-- ==========================================
+             STYLIZED MODAL SIDE DRAWER
+             ========================================== -->
+        <div class="panel-overlay" id="filterPanelOverlay">
+            <div class="side-filter-panel">
+                <div class="panel-header">
+                    <span class="panel-title">Preferences</span>
+                    <button class="panel-close-btn" id="closePanelBtn">&times;</button>
+                </div>
+
+                <!-- Multi-Select Category Selection Deck -->
+                <div class="filter-section">
+                    <span class="control-label">Filter By Category</span>
+                    <div class="filter-pills" id="categoryPills">
+                        <button class="pill active" data-value="all">All Products</button>
+                        <button class="pill" data-value="wallet">Wallets</button>
+                        <button class="pill" data-value="belt">Belts</button>
+                        <button class="pill" data-value="keychain">Keychains</button>
+                        <button class="pill" data-value="hat">Hats</button>
+                        <button class="pill" data-value="bags">Bags</button>
+                        <button class="pill" data-value="holsters">Holsters</button>
+                        <button class="pill" data-value="sheeths">Sheaths</button>
+                    </div>
+                </div>
+                
+                <div class="filter-divider"></div>
+                
+                <!-- Single-Select Sorting Mechanics -->
+                <div class="filter-section">
+                    <span class="control-label">Sort Inventory</span>
+                    <div class="filter-pills" id="sortPills">
+                        <button class="pill active" data-value="default">Default</button>
+                        <button class="pill" data-value="price-low">Price: Low to High</button>
+                        <button class="pill" data-value="price-high">Price: High to Low</button>
+                        <button class="pill" data-value="name-asc">Alphabetical</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-grid" id="mainProductGrid">
+            <!-- ITEM 1: WALLET -->
             <div class="product-card animate-on-scroll" 
-                 data-name="The Rancher Saddle" 
-                 data-price="Custom Tree - Built to Order" 
-                 data-desc="Individually customized tree build, featuring hand-tooled leaf patterns, premium weather-sealed oil finishes, and reinforced heavy-gauge saddle lining. Designed to deliver superior comfort and balance through long days across active trail work."
-                 data-rev1="&ldquo;Contours perfectly to my position. Absolutely bombproof rig.&rdquo; &mdash; Dan K."
-                 data-rev2="&ldquo;Singular attention to detail on the leaf pattern tooling marks.&rdquo; &mdash; Wyatt L."
+                 data-name="The Roughrider Bifold" 
+                 data-category="wallet"
+                 data-price="65.00" 
+                 data-desc="Minimalist carry configuration featuring six slot compartments, heavy duty saddle-stitch seam locks, and hand beveled finishes built to develop a striking custom patina style."
+                 data-rev1="&ldquo;Incredibly slim. The Tan looks gorgeous after a few weeks.&rdquo; &mdash; Dan K."
+                 data-rev2="&ldquo;Stitching is rock solid.&rdquo; &mdash; Wyatt L."
                  data-img1="images/leathermaking.avif"
                  data-img2="images/saddle2.avif"
                  data-img3="images/saddle3.avif">
-                 <!-- Added width, height, and object-fit styles to make it fill edge-to-edge -->
                 <div class="image-placeholder" style="overflow: hidden;">
-                    <img src="images/leathermaking.avif" alt="Premium Western Saddle" class="product-image" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="images/leathermaking.avif" alt="Roughrider Bifold" class="product-image" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
-                <h3>The Rancher Saddle</h3>
-                <p class="product-price">Custom Tree - Built to Order</p>
+                <h3>The Roughrider Bifold</h3>
+                <p class="product-price">$65.00</p>
                 <button class="btn btn-details" style="width: 100%;">See Details</button>
             </div>
             
-            <!-- PRODUCT 2 -->
+            <!-- ITEM 2: BELT -->
             <div class="product-card animate-on-scroll" 
                  data-name="Classic Heritage Belt (1.5&quot;)" 
-                 data-price="$95.00" 
-                 data-desc="Heavy duty solid brass buckle configurations matching an premium 12oz vegetable-tanned harness leather strap hide sourcing. Beveled wax runtime edge layouts ensure comfortable dynamic everyday carrying durability."
+                 data-category="belt"
+                 data-price="95.00" 
+                 data-desc="Heavy duty solid brass buckle configurations matching an premium 12oz vegetable-tanned harness leather strap hide sourcing."
                  data-rev1="&ldquo;The natural process is incredibly satisfying to watch patina.&rdquo; &mdash; Cole B."
                  data-rev2="&ldquo;Thick, heavy leather that sets into shape effortlessly.&rdquo; &mdash; Marcus G."
                  data-img1="images/belt1.avif"
                  data-img2="images/belt2.avif"
                  data-img3="images/belt3.avif">
-                 <!-- Applied same filling styles here -->
                 <div class="image-placeholder" style="overflow: hidden;">
                     <img src="images/belt1.avif" alt="Handstitched Heavy Belt" class="product-image" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
@@ -74,22 +125,136 @@
                 <button class="btn btn-details" style="width: 100%;">See Details</button>
             </div>
 
-            <!-- PRODUCT 3 -->
+            <!-- ITEM 3: SHEATH -->
             <div class="product-card animate-on-scroll" 
                  data-name="Bespoke Rifle Scabbard" 
-                 data-price="$185.00" 
+                 data-category="sheeths"
+                 data-price="185.00" 
                  data-desc="Traditional heavy waxed line saddle-stitch layout, adjustable reinforcement mounting straps, and solid framing setup to guarantee comprehensive field protection across remote backcountry travel environments."
                  data-rev1="&ldquo;Secure, solid lockup on my frame. Keeps elements out perfectly.&rdquo; &mdash; Frank R."
                  data-rev2="&ldquo;Smells like incredible, old-world workbench quality leather.&rdquo; &mdash; Vance P."
                  data-img1="images/scabbard1.avif"
                  data-img2="images/scabbard2.avif"
                  data-img3="images/scabbard3.avif">
-                 <!-- Applied same filling styles here -->
                 <div class="image-placeholder" style="overflow: hidden;">
                     <img src="images/scabbard1.avif" alt="Custom Leather Scabbard" class="product-image" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <h3>Bespoke Rifle Scabbard</h3>
                 <p class="product-price">$185.00</p>
+                <button class="btn btn-details" style="width: 100%;">See Details</button>
+            </div>
+
+            <!-- ITEM 4: KEYCHAIN -->
+            <div class="product-card animate-on-scroll" 
+                 data-name="Trailhead Brass Fob" 
+                 data-category="keychain"
+                 data-price="25.00" 
+                 data-desc="Solid premium brass scissor snap mechanism locked to a strip hide remnant layout. Crafted to handle lifetime keys or loop hook adjustments seamlessly."
+                 data-rev1="&ldquo;Small, robust, and the hardware clip is extremely high grade.&rdquo; &mdash; Luke T."
+                 data-rev2="&ldquo;Makes a perfect gift.&rdquo; &mdash; Clara W."
+                 data-img1="images/belt2.avif"
+                 data-img2="images/belt3.avif"
+                 data-img3="images/belt1.avif">
+                <div class="image-placeholder" style="overflow: hidden;">
+                    <img src="images/belt2.avif" alt="Trailhead Brass Fob" class="product-image" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3>Trailhead Brass Fob</h3>
+                <p class="product-price">$25.00</p>
+                <button class="btn btn-details" style="width: 100%;">See Details</button>
+            </div>
+
+            <!-- ITEM 5: HAT -->
+            <div class="product-card animate-on-scroll" 
+                 data-name="The Outlaw Leather Patch Cap" 
+                 data-category="hat"
+                 data-price="45.00" 
+                 data-desc="Classic oiled canvas framing featuring a hand-stamped, vegetable-tanned premium leather center crown piece sewn manually onto vintage styling rigs."
+                 data-rev1="&ldquo;Great shape, patch looks stunning.&rdquo; &mdash; Cody R."
+                 data-rev2="&ldquo;Fits well and handles sweat/oil wonderfully out in the yard.&rdquo; &mdash; Pete M."
+                 data-img1="images/horsehero.jpg"
+                 data-img2="images/leathermaking.avif"
+                 data-img3="images/saddle2.avif">
+                <div class="image-placeholder" style="overflow: hidden;">
+                    <img src="images/horsehero.jpg" alt="Outlaw Patch Cap" class="product-image" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3>The Outlaw Patch Cap</h3>
+                <p class="product-price">$45.00</p>
+                <button class="btn btn-details" style="width: 100%;">See Details</button>
+            </div>
+
+            <!-- ITEM 6: BAGS -->
+            <div class="product-card animate-on-scroll" 
+                 data-name="High-Desert Field Satchel" 
+                 data-category="bags"
+                 data-price="295.00" 
+                 data-desc="Expansive configuration built for computing notebooks and travel necessities. Reinforced corner stitching profiles matching thick strap wrap-around handle assemblies ensure extreme reliability."
+                 data-rev1="&ldquo;An investment piece. Built like a physical tank layout.&rdquo; &mdash; Arthur S."
+                 data-rev2="&ldquo;Stunning interior hide finishes.&rdquo; &mdash; James O."
+                 data-img1="images/scabbard2.avif"
+                 data-img2="images/scabbard3.avif"
+                 data-img3="images/scabbard1.avif">
+                <div class="image-placeholder" style="overflow: hidden;">
+                    <img src="images/scabbard2.avif" alt="High-Desert Field Satchel" class="product-image" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3>High-Desert Satchel</h3>
+                <p class="product-price">$295.00</p>
+                <button class="btn btn-details" style="width: 100%;">See Details</button>
+            </div>
+
+            <!-- ITEM 7: HOLSTERS -->
+            <div class="product-card animate-on-scroll" 
+                 data-name="Frontier Wheelgun Holster" 
+                 data-category="holsters"
+                 data-price="135.00" 
+                 data-desc="Meticulously wet-molded frame geometry layout providing seamless security. Fits standard tracking outlines for classic wilderness sidearms cleanly."
+                 data-rev1="&ldquo;Perfect retention factor, locks straight to my belt line cleanly.&rdquo; &mdash; Jesse W."
+                 data-rev2="&ldquo;Tooling marks match my saddle rig identically.&rdquo; &mdash; Bill B."
+                 data-img1="images/saddle3.avif"
+                 data-img2="images/saddle2.avif"
+                 data-img3="images/leathermaking.avif">
+                <div class="image-placeholder" style="overflow: hidden;">
+                    <img src="images/saddle3.avif" alt="Frontier Wheelgun Holster" class="product-image" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3>Frontier Gun Holster</h3>
+                <p class="product-price">$135.00</p>
+                <button class="btn btn-details" style="width: 100%;">See Details</button>
+            </div>
+
+            <!-- ITEM 8: WALLET -->
+            <div class="product-card animate-on-scroll" 
+                 data-name="The Frontiersman Card Slip" 
+                 data-category="wallet"
+                 data-price="35.00" 
+                 data-desc="Slim tracking profile for modern minimalist card carrying operations. Three pockets calculated down to fractional tolerances to maintain tension."
+                 data-rev1="&ldquo;Disappears completely into front pocket rigs effortlessly.&rdquo; &mdash; Hank G."
+                 data-rev2="&ldquo;Smells premium and is tight enough to retain single items safely.&rdquo; &mdash; Eli F."
+                 data-img1="images/saddle2.avif"
+                 data-img2="images/leathermaking.avif"
+                 data-img3="images/saddle3.avif">
+                <div class="image-placeholder" style="overflow: hidden;">
+                    <img src="images/saddle2.avif" alt="Frontiersman Card Slip" class="product-image" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3>Frontiersman Card Slip</h3>
+                <p class="product-price">$35.00</p>
+                <button class="btn btn-details" style="width: 100%;">See Details</button>
+            </div>
+
+            <!-- ITEM 9: SHEATH -->
+            <div class="product-card animate-on-scroll" 
+                 data-name="Forester Ax Guard" 
+                 data-category="sheeths"
+                 data-price="55.00" 
+                 data-desc="Heavy harness strap locking guard built for classic felling profiles. Reinforced with solid steel rivets to avoid dynamic blade edge cutthrough failures."
+                 data-rev1="&ldquo;Heavy thick leather. Fits my Gransfors perfectly.&rdquo; &mdash; Thomas C."
+                 data-rev2="&ldquo;Top tier construction shield.&rdquo; &mdash; Robert T."
+                 data-img1="images/scabbard3.avif"
+                 data-img2="images/scabbard1.avif"
+                 data-img3="images/scabbard2.avif">
+                <div class="image-placeholder" style="overflow: hidden;">
+                    <img src="images/scabbard3.avif" alt="Forester Ax Guard" class="product-image" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3>Forester Ax Guard</h3>
+                <p class="product-price">$55.00</p>
                 <button class="btn btn-details" style="width: 100%;">See Details</button>
             </div>
         </div>
@@ -197,7 +362,7 @@
                         <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.8z"/></svg>
                     </a>
                     <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204 013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
                     </a>
                 </div>
             </div>
@@ -253,7 +418,7 @@
                 currentItemName = card.getAttribute('data-name');
                 
                 document.getElementById('modalTitle').innerText = currentItemName;
-                document.getElementById('modalPrice').innerText = card.getAttribute('data-price');
+                document.getElementById('modalPrice').innerText = "$" + card.getAttribute('data-price');
                 document.getElementById('modalDesc').innerText = card.getAttribute('data-desc');
                 
                 reviewsContainer.innerHTML = `
@@ -261,7 +426,6 @@
                     <div class="modal-review-item">${card.getAttribute('data-rev2')}</div>
                 `;
 
-                // GRAB THE DISTINCT IMAGES AND LOAD THEM INTO THE CAROUSEL
                 const img1 = card.getAttribute('data-img1');
                 const img2 = card.getAttribute('data-img2');
                 const img3 = card.getAttribute('data-img3');
@@ -301,6 +465,137 @@
                 window.location.href = "custom.html";
             }
         });
+
+        // ==========================================
+        // SIDE BAR PANEL CONTROL INTERACTION INTERFACE
+        // ==========================================
+        const overlayPanel = document.getElementById('filterPanelOverlay');
+        const openPanelBtn = document.getElementById('openPanelBtn');
+        const closePanelBtn = document.getElementById('closePanelBtn');
+
+        openPanelBtn.addEventListener('click', () => overlayPanel.classList.add('active'));
+        closePanelBtn.addEventListener('click', () => overlayPanel.classList.remove('active'));
+        overlayPanel.addEventListener('click', (e) => {
+            if(e.target === overlayPanel) overlayPanel.classList.remove('active');
+        });
+
+        // ==========================================
+        // DYNAMIC FILTER SYSTEM WITH ACTIVE VISUAL BADGES
+        // ==========================================
+        const gridContainer = document.getElementById('mainProductGrid');
+        const activeBadgesContainer = document.getElementById('activeBadgesContainer');
+        const categoryPills = document.querySelectorAll('#categoryPills .pill');
+        const sortPills = document.querySelectorAll('#sortPills .pill');
+        const originalProductCards = Array.from(document.querySelectorAll('.product-grid .product-card'));
+
+        let activeCategories = ['all'];
+        let activeSort = 'default';
+
+        function getCategoryLabel(value) {
+            if (value === 'wallet') return 'Wallets';
+            if (value === 'belt') return 'Belts';
+            if (value === 'keychain') return 'Keychains';
+            if (value === 'hat') return 'Hats';
+            if (value === 'bags') return 'Bags';
+            if (value === 'holsters') return 'Holsters';
+            if (value === 'sheeths') return 'Sheaths';
+            return value;
+        }
+
+        function renderBadges() {
+            activeBadgesContainer.innerHTML = '';
+            
+            if (activeCategories.includes('all') || activeCategories.length === 0) return;
+
+            activeCategories.forEach(category => {
+                const badge = document.createElement('div');
+                badge.className = 'badge';
+                badge.innerHTML = `${getCategoryLabel(category)} <span class="badge-close">&times;</span>`;
+                
+                badge.addEventListener('click', () => {
+                    removeCategoryFilter(category);
+                });
+                activeBadgesContainer.appendChild(badge);
+            });
+        }
+
+        function removeCategoryFilter(category) {
+            activeCategories = activeCategories.filter(c => c !== category);
+            
+            const matchPill = document.querySelector(`#categoryPills .pill[data-value="${category}"]`);
+            if (matchPill) matchPill.classList.remove('active');
+
+            if (activeCategories.length === 0) {
+                activeCategories = ['all'];
+                const allPill = document.querySelector('#categoryPills .pill[data-value="all"]');
+                if (allPill) allPill.classList.add('active');
+            }
+            processCatalogView();
+        }
+
+        categoryPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                const value = pill.getAttribute('data-value');
+                const allPill = document.querySelector('#categoryPills .pill[data-value="all"]');
+
+                if (value === 'all') {
+                    activeCategories = ['all'];
+                    categoryPills.forEach(p => p.classList.remove('active'));
+                    allPill.classList.add('active');
+                } else {
+                    allPill.classList.remove('active');
+                    activeCategories = activeCategories.filter(c => c !== 'all');
+
+                    if (pill.classList.contains('active')) {
+                        pill.classList.remove('active');
+                        activeCategories = activeCategories.filter(c => c !== value);
+                        
+                        if (activeCategories.length === 0) {
+                            activeCategories = ['all'];
+                            allPill.classList.add('active');
+                        }
+                    } else {
+                        pill.classList.add('active');
+                        activeCategories.push(value);
+                    }
+                }
+                processCatalogView();
+            });
+        });
+
+        sortPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                sortPills.forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                activeSort = pill.getAttribute('data-value');
+                processCatalogView();
+            });
+        });
+
+        function processCatalogView() {
+            renderBadges();
+
+            let visibleCards = originalProductCards.filter(card => {
+                const cardCategory = card.getAttribute('data-category');
+                if (activeCategories.includes('all') || activeCategories.includes(cardCategory)) {
+                    card.style.display = 'block';
+                    return true;
+                } else {
+                    card.style.display = 'none';
+                    return false;
+                }
+            });
+
+            if (activeSort === 'price-low') {
+                visibleCards.sort((a, b) => parseFloat(a.getAttribute('data-price')) - parseFloat(b.getAttribute('data-price')));
+            } else if (activeSort === 'price-high') {
+                visibleCards.sort((a, b) => parseFloat(b.getAttribute('data-price')) - parseFloat(a.getAttribute('data-price')));
+            } else if (activeSort === 'name-asc') {
+                visibleCards.sort((a, b) => a.getAttribute('data-name').localeCompare(b.getAttribute('data-name')));
+            }
+
+            visibleCards.forEach(card => gridContainer.appendChild(card));
+        }
 
         // WALLET VISUALIZER EVENT ATTACHMENT
         let configuredLeather = "Natural Tan";

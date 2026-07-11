@@ -1470,3 +1470,241 @@ a {
     min-width: 170px !important;          
     max-width: 170px !important;          
 }
+/* ==========================================
+   CLEAN MINIMALIST TOGGLE CONTROLS BAR WITH BADGES
+   ========================================== */
+.catalog-action-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    padding: 12px 0;
+    background-color: transparent;
+    gap: 12px;
+}
+
+/* High-End Action Trigger Button Style */
+.btn-toggle-panel {
+    background-color: transparent;
+    border: 1px solid var(--text-dark, #1e1915);
+    color: var(--text-dark, #1e1915);
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.btn-toggle-panel:hover {
+    background-color: var(--text-dark, #1e1915);
+    color: #ffffff;
+}
+
+/* Active Filter Badge Container & Styling */
+.active-badges-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f2ede4;
+    border: 1px solid #dcd1c4;
+    color: var(--text-dark, #1e1915);
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.badge:hover {
+    background-color: #e8ded2;
+    border-color: var(--accent-color, #8b5a2b);
+    color: var(--accent-color, #8b5a2b);
+}
+
+.badge .badge-close {
+    margin-left: 8px;
+    font-size: 1rem;
+    line-height: 1;
+    font-weight: 400;
+}
+
+/* ==========================================
+   SLIDE-OUT FILTER SIDE PANEL DRAWER
+   ========================================== */
+.panel-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 25, 21, 0.4);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    backdrop-filter: blur(2px);
+}
+
+.panel-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.side-filter-panel {
+    position: fixed;
+    top: 0;
+    left: -380px; 
+    width: 350px;
+    max-width: 85vw;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 1001;
+    box-shadow: 5px 0 25px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 30px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.panel-overlay.active .side-filter-panel {
+    left: 0;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f2ede4;
+}
+
+.panel-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-dark, #1e1915);
+}
+
+.panel-close-btn {
+    background: none;
+    border: none;
+    font-size: 1.75rem;
+    cursor: pointer;
+    color: var(--text-dark, #1e1915);
+    line-height: 1;
+    padding: 0;
+}
+
+.filter-section {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 25px;
+}
+
+.control-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-dark, #1e1915);
+}
+
+.filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.pill {
+    background: #ffffff;
+    border: 1px solid #dcd1c4;
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-family: inherit;
+    color: var(--text-dark, #1e1915);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.pill:hover {
+    border-color: var(--accent-color, #8b5a2b);
+    color: var(--accent-color, #8b5a2b);
+}
+
+.pill.active {
+    background-color: var(--text-dark, #1e1915);
+    color: #ffffff;
+    border-color: var(--text-dark, #1e1915);
+}
+
+.filter-divider {
+    height: 1px;
+    background-color: #f2ede4;
+    margin: 10px 0 20px 0;
+}
+
+/* ==========================================
+   GRID RESOLUTION LOCKS
+   ========================================== */
+.product-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important; 
+    gap: 30px !important;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .catalog-action-bar {
+        padding: 12px 15px;
+    }
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        padding: 0 5px !important;
+    }
+    .product-card {
+        padding: 8px !important;
+    }
+    .product-card h3 {
+        font-size: 0.95rem !important;
+        margin: 8px 0 4px !important;
+    }
+    .product-price {
+        font-size: 0.85rem !important;
+        margin-bottom: 8px !important;
+    }
+    .product-card .btn {
+        padding: 6px 4px !important;
+        font-size: 0.75rem !important;
+    }
+}
