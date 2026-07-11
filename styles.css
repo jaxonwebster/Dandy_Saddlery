@@ -1721,3 +1721,317 @@ a {
 .product-grid .product-card .btn-details {
     margin-top: auto !important; /* Anchors the button to the uniform bottom edge */
 }
+
+/* ==========================================================
+   PREMIUM SADDLE-STITCHED ABOUT US PAGE STYLES
+   ========================================================== */
+
+/* --- GLOBAL PAGE TITLE BLOCK --- */
+.page-title-header {
+    text-align: center;
+    padding: 100px 8% 10px;
+    background-color: var(--bg-warm);
+}
+
+.page-subtitle {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.page-main-title {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0;
+}
+
+/* --- SECTION CONTAINER ARCHITECTURE --- */
+.about-story-section {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--bg-warm);
+    padding: 80px 8% 100px;
+}
+
+.section-alt-bg {
+    background-color: var(--bg-card);
+}
+
+.about-luxury-container {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 90px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.layout-mirrored {
+    grid-template-columns: 0.95fr 1.05fr;
+}
+
+/* --- BACKGROUND WATERMARK EFFECT --- */
+.about-watermark {
+    position: absolute;
+    top: 40px;
+    right: -20px;
+    font-family: var(--font-display);
+    font-size: 12rem;
+    font-weight: 700;
+    color: var(--border-color);
+    opacity: 0.15;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* --- HAND-STITCHED LEATHER PHOTO PLATFORM --- */
+.about-visual-side {
+    position: relative;
+}
+
+/* ==========================================================
+   PIERCED SADDLE-STITCH PHOTO ENGINE (NO BOX / NO CARD)
+   ========================================================== */
+
+.about-visual-side {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+/* Removes the overlay stitching details */
+.photo-saddle-stitch::before {
+    display: none; 
+}
+
+/* Keeps your images clean, aligned, and beautifully bounded */
+.photo-saddle-stitch img {
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 10px 30px rgba(30, 25, 21, 0.05);
+}
+
+.photo-saddle-stitch img {
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 1;
+    
+    /* Soft shadow to separate the raw photo edge from your page background background */
+    box-shadow: 0 10px 30px rgba(30, 25, 21, 0.05);
+}
+
+/* Moving the caption styling safely down below the non-card picture edge */
+.about-frame-caption {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 18px;
+    padding: 0 4px;
+}
+
+.about-frame-caption {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.about-frame-caption .caption-line {
+    height: 1px;
+    width: 30px;
+    background-color: var(--accent-color);
+}
+
+.about-frame-caption p {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-color);
+}
+
+/* --- TYPOGRAPHY & HOT-IRON TOOLING MARKS --- */
+.about-narrative-side {
+    padding-left: 10px;
+}
+
+.layout-mirrored .about-narrative-side {
+    padding-left: 0;
+    padding-right: 10px;
+}
+
+.narrative-badge {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 12px;
+}
+
+/* Premium hot-iron header stamp housing */
+.tooled-header-wrap {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.narrative-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    line-height: 1.15;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+/* Hot-iron edge tooling accent line detail */
+.tooling-mark {
+    display: block;
+    width: 100%;
+    height: 3px;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color); /* Simulates dual-line groover tools */
+    margin-top: 10px;
+}
+
+.about-narrative-side .about-body-text {
+    font-family: var(--font-body);
+    font-size: 0.98rem;
+    line-height: 1.85;
+    color: var(--text-dark);
+    opacity: 0.85;
+    margin-bottom: 25px;
+}
+
+.about-narrative-side .about-body-text:last-of-type {
+    margin-bottom: 35px;
+}
+
+/* Craft Stamp Details */
+.makers-mark-signature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 25px;
+    border-top: 1px dashed var(--border-color); /* Keeps the structural stitch layout theme */
+}
+
+.makers-mark-signature .stamp-icon {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+}
+
+.makers-mark-signature .stamp-text {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+/* ==========================================================
+   RESPONSIVE LAYOUT CONSTRAINTS
+   ========================================================== */
+@media (max-width: 1024px) {
+    .about-story-section { padding: 70px 5%; }
+    .about-luxury-container, .layout-mirrored { gap: 40px; grid-template-columns: 1fr; }
+    .narrative-title { font-size: 2.5rem; }
+    .page-main-title { font-size: 2.8rem; }
+    .about-luxury-container { grid-template-columns: 1fr !important; }
+    .about-image-frame { padding: 0; }
+    .about-narrative-side { padding: 0 !important; text-align: center; }
+    .makers-mark-signature { justify-content: center; }
+}
+@media (max-width: 768px) {
+    /* 1. Ensures all layout wrappers collapse into a single vertical column stack */
+    .about-luxury-container, 
+    .layout-mirrored {
+        grid-template-columns: 1fr !important;
+        gap: 40px; /* Uniform breathing room between elements */
+    }
+
+    /* 2. Forces the narrative blocks to always drop below the images on small screens */
+    .about-narrative-side {
+        order: 2; /* Moves text to the second position inside the column */
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        text-align: center;
+    }
+
+    /* 3. Forces the visual image blocks to always jump to the top of the column */
+    .about-visual-side {
+        order: 1; /* Pulls image to the first position inside the column */
+    }
+
+    /* 4. Resets and cleans up your previous editorial framing shifts for mobile viewports */
+    .about-watermark { 
+        display: none; 
+    }
+    
+    .about-image-frame { 
+        transform: translateX(0) !important; 
+        padding: 0; 
+    }
+    
+    .makers-mark-signature { 
+        justify-content: center; 
+    }
+}
+/* ==========================================================
+   GLOBAL NARROW HERO (Default for all interior pages)
+   ========================================================== */
+@media (min-width: 993px) {
+    .hero {
+        height: 60vh !important;       
+        min-height: 280px !important;  
+        padding: 40px 20px !important; 
+    }
+
+    .hero-content h2 {
+        font-size: 2.5rem !important;  
+        margin-bottom: 12px !important;
+    }
+    
+    .hero-content p {
+        font-size: 1rem !important;
+    }
+}
+
+/* ==========================================================
+   HOMEPAGE HERO EXCEPTION (Restores original grand sizing)
+   ========================================================== */
+@media (min-width: 993px) {
+    .home-page .hero {
+        height: 75vh !important;       /* Back to your original large height */
+        min-height: 500px !important;  /* Back to your original minimum desktop baseline */
+        padding: 20px !important; 
+    }
+
+    .home-page .hero-content h2 {
+        font-size: 3.5rem !important;  /* Back to your original bold typography scaling */
+        margin-bottom: 25px !important;
+    }
+    
+    .home-page .hero-content p {
+        font-size: 1.15rem !important;
+    }
+}
