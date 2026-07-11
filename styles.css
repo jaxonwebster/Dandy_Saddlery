@@ -1433,15 +1433,15 @@ a {
     transition: all 0.3s ease;
 }
 /* ==========================================================================
-   UNIFIED HERO ACTION BUTTON PLATFORM (Fluid & Balanced)
+   UNIFIED HERO ACTION BUTTON PLATFORM (Desktop Layout)
    ========================================================================== */
 .hero-actions {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;           /* Keeps them side-by-side everywhere */
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    gap: 15px;                   /* Slightly wider luxury gap */
+    gap: 12px;                   /* Minimal, clean gap on desktop */
     margin-top: 25px;
     width: 100%;
 }
@@ -1449,12 +1449,12 @@ a {
 .hero-actions .btn, 
 .hero-actions .btn-secondary {
     box-sizing: border-box;
-    display: inline-flex;        /* Switched to flex to handle centering text perfectly */
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     
-    height: 46px;                /* Slightly taller for a more premium look */
-    padding: 0 28px;             /* FIX: Generous, matching breathing room on the sides */
+    height: 46px;
+    padding: 0 28px;
     
     font-size: 0.8rem;
     font-weight: 600;
@@ -1463,15 +1463,27 @@ a {
     text-align: center;
     white-space: nowrap;         
     
-    /* FLEXIBILITY OVERRIDES */
-    width: auto;                 /* Removes the rigid pixel box */
-    min-width: 145px;            /* Ensures neither button feels like a tiny stub */
-    
+    width: auto;
+    min-width: 155px;            /* Gives both buttons a solid baseline size */
     border-radius: 2px;
     transition: all 0.25s ease;
 }
 
-/* Clear definitions for the secondary transparent outline look */
+/* --- BUTTON VARIATION DESIGN ARCHITECTURE --- */
+
+/* Primary Button Design (Solid Theme) */
+.hero-actions .btn {
+    background-color: var(--accent-color, #9a5223);
+    border: 2px solid var(--accent-color, #9a5223);
+    color: var(--text-light, #f7f4ee);
+}
+
+.hero-actions .btn:hover {
+    background-color: var(--accent-hover, #753b16);
+    border-color: var(--accent-hover, #753b16);
+}
+
+/* Secondary Button Design (Transparent Outline Theme) */
 .hero-actions .btn-secondary {
     background-color: transparent;
     border: 2px solid #ffffff;
@@ -1483,21 +1495,22 @@ a {
     color: var(--primary-color, #1e1915);
 }
 
-/* ==========================================================
-   MOBILE HERO BUTTON COMPRESSION (Prevents screen bleeding)
-   ========================================================== */
-@media (max-width: 480px) {
+/* ==========================================================================
+   RESPONSIVE OVERRIDES (Stacked on Mobile Only)
+   ========================================================================== */
+@media (max-width: 768px) {
     .hero-actions {
-        gap: 8px; /* Slightly tightens the gap between buttons on small phones */
+        flex-direction: column;   /* Stacks the elements vertically */
+        gap: 8px;                 /* Minimal layout spacing gap between the stacked buttons */
+        padding: 0 20px;          /* Prevents buttons from clipping screen edges */
     }
 
     .hero-actions .btn, 
     .hero-actions .btn-secondary {
-        height: 40px;         /* Slightly shorter baseline tracking */
-        padding: 0 14px;      /* Halves side padding so buttons scale down neatly */
-        font-size: 0.72rem;   /* Marginally shrinks text so letters don't clip */
-        letter-spacing: 1px;  /* Tightens letter space tracking for screen compliance */
-        min-width: 130px;     /* Drops minimum floor width safely down to fit 320px grids */
+        width: 100%;              /* Forces buttons to match width evenly on mobile */
+        max-width: 280px;         /* Limits width so they don't look overly stretched on tablets */
+        height: 44px;
+        padding: 0;               /* Resets side padding since width is handling expansion */
     }
 }
 /* ==========================================
