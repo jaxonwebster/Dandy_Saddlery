@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | Dandy Saddlery</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Contextual styles matching your site's premium structural vibe */
+        .detail-layout-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        @media (min-width: 768px) {
+            .detail-layout-grid {
+                grid-template-columns: 1.2fr 1fr;
+                gap: 60px;
+            }
+        }
+        .gallery-display-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .main-hero-view {
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            border-radius: 4px;
+            border: 1px solid var(--border-color, #e2dacc);
+        }
+        .main-hero-view img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .thumbnail-strip-row {
+            display: flex;
+            gap: 10px;
+        }
+        .thumb-item {
+            flex: 1;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            border-radius: 2px;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.2s ease;
+            border: 1px solid var(--border-color, #e2dacc);
+        }
+        .thumb-item.active, .thumb-item:hover {
+            opacity: 1;
+        }
+        .thumb-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .item-meta-panel h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .price-tag-value {
+            color: var(--accent-color, #8b5a2b);
+            font-weight: 600;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .description-paragraph {
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+        .reviews-block-stack {
+            margin-top: 40px;
+            border-top: 1px solid var(--border-color, #e2dacc);
+            padding-top: 30px;
+        }
+        .reviews-block-stack h4 {
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .single-review-card {
+            font-style: italic;
+            padding: 15px 0;
+            border-bottom: 1px dashed var(--border-color, #e2dacc);
+        }
+        .single-review-card:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Matching Navigation System -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">
+            <h1>Dandy <span>Saddlery</span></h1>
+        </a>
+        
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </label>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="custom.html">Create Order</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contextual Section Container -->
+    <section class="section-padding">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            
+            <a href="products.html" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 8px; font-weight: 500; margin-bottom: 20px;">
+                &#10094; Back to Products
+            </a>
+
+            <div class="detail-layout-grid">
+                <!-- Left: Dynamic Image Gallery Layout -->
+                <div class="gallery-display-wrapper">
+                    <div class="main-hero-view">
+                        <img id="productHeroImg" src="" alt="Product View">
+                    </div>
+                    <div class="thumbnail-strip-row" id="productThumbRow">
+                        <!-- Thumbs injected dynamically -->
+                    </div>
+                </div>
+
+                <!-- Right: Content Information Panel -->
+                <div class="item-meta-panel">
+                    <h2 id="productTitleName">Loading Product...</h2>
+                    <p class="price-tag-value" id="productDisplayPrice"></p>
+                    <p class="description-paragraph" id="productDescriptionBody"></p>
+                    
+                    <button class="btn" id="itemCreateOrderBtn" style="width: 100%; max-width: 400px; padding: 15px 30px;">Create Order</button>
+
+                    <div class="reviews-block-stack">
+                        <h4>Customer Feedback</h4>
+                        <div id="productReviewsContainer"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Matching Footer System -->
+    <footer class="main-footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <h3>Dandy Saddlery</h3>
+                <p>Handmade. Built to Last.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.8z"/></svg>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="custom.html">Custom Orders</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="reviews.html">Reviews</a></li>
+                        <li><a href="gallery.html">Photo Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Craft Information</h4>
+                    <ul>
+                        <li><a href="#">Measure My Belt Size</a></li>
+                        <li><a href="#">Submitting Customs Outlines</a></li>
+                        <li><a href="#">Leather Care Guide</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">Our Promise & Warranty</a></li>
+                        <li><a href="#">Visit Us in Person</a></li>
+                        <li><a href="#">Refund & Return Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 <a href="https://websterwebdesign.com/">Jaxon Webster</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Retrieve and parse the saved product bundle string
+            const rawData = localStorage.getItem('active_product_view');
+            
+            if (!rawData) {
+                // If someone visits item.html directly without clicking a product
+                document.getElementById('productTitleName').innerText = "Product Not Found";
+                document.getElementById('productDescriptionBody').innerText = "Please return to our store catalog to select an item.";
+                return;
+            }
+
+            const product = JSON.parse(rawData);
+
+            // Populate Text & Data nodes
+            document.title = `${product.name} | Dandy Saddlery`;
+            document.getElementById('productTitleName').innerText = product.name;
+            document.getElementById('productDisplayPrice').innerText = "$" + product.price;
+            document.getElementById('productDescriptionBody').innerText = product.desc;
+
+            // Handle Review Text Blocks
+            const reviewContainer = document.getElementById('productReviewsContainer');
+            reviewContainer.innerHTML = `
+                <div class="single-review-card">${product.rev1}</div>
+                <div class="single-review-card">${product.rev2}</div>
+            `;
+
+            // Setup Interactive Multiphoto Gallery Display
+            const heroImg = document.getElementById('productHeroImg');
+            const thumbRow = document.getElementById('productThumbRow');
+            const imagesArray = [product.img1, product.img2, product.img3].filter(Boolean);
+
+            // Establish primary hero image fallback framework
+            if(imagesArray.length > 0) {
+                heroImg.src = imagesArray[0];
+                heroImg.alt = product.name;
+
+                imagesArray.forEach((imgSrc, idx) => {
+                    const thumbDiv = document.createElement('div');
+                    thumbDiv.className = `thumb-item ${idx === 0 ? 'active' : ''}`;
+                    thumbDiv.innerHTML = `<img src="${imgSrc}" alt="${product.name} view ${idx + 1}">`;
+                    
+                    thumbDiv.addEventListener('click', () => {
+                        document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
+                        thumbDiv.classList.add('active');
+                        heroImg.src = imgSrc;
+                    });
+                    
+                    thumbRow.appendChild(thumbDiv);
+                });
+            }
+
+            // Sync dynamic "Create Order" button interaction flow with your custom.html setup
+            document.getElementById('itemCreateOrderBtn').addEventListener('click', () => {
+                localStorage.setItem('dandy_order_transfer', product.name);
+                window.location.href = "custom.html";
+            });
+        });
+    </script>
+    <script src="chatbot.js"></script>
+</body>
+</html>

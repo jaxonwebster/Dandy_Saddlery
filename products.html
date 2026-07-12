@@ -420,60 +420,31 @@
         const track = document.getElementById('carouselTrack');
         const reviewsContainer = document.getElementById('modalReviewsContainer');
 
-        // Modal triggers setup
-        document.querySelectorAll('.btn-details').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const card = e.target.closest('.product-card');
-                currentItemName = card.getAttribute('data-name');
-                
-                document.getElementById('modalTitle').innerText = currentItemName;
-                document.getElementById('modalPrice').innerText = "$" + card.getAttribute('data-price');
-                document.getElementById('modalDesc').innerText = card.getAttribute('data-desc');
-                
-                reviewsContainer.innerHTML = `
-                    <div class="modal-review-item">${card.getAttribute('data-rev1')}</div>
-                    <div class="modal-review-item">${card.getAttribute('data-rev2')}</div>
-                `;
-
-                const img1 = card.getAttribute('data-img1');
-                const img2 = card.getAttribute('data-img2');
-                const img3 = card.getAttribute('data-img3');
-
-                track.innerHTML = `
-                    <div class="carousel-slide image-placeholder"><img src="${img1}" alt="${currentItemName} view 1" class="product-image"></div>
-                    <div class="carousel-slide image-placeholder"><img src="${img2}" alt="${currentItemName} view 2" class="product-image"></div>
-                    <div class="carousel-slide image-placeholder"><img src="${img3}" alt="${currentItemName} view 3" class="product-image"></div>
-                `;
-                
-                currentCarouselIndex = 0;
-                updateCarouselLayout();
-                modal.classList.add('active');
-            });
-        });
-
-        document.getElementById('modalCloseBtn').addEventListener('click', () => modal.classList.remove('active'));
-        modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('active'); });
-
-        document.getElementById('nextBtn').addEventListener('click', () => {
-            currentCarouselIndex = (currentCarouselIndex + 1) % totalSlides;
-            updateCarouselLayout();
-        });
-
-        document.getElementById('prevBtn').addEventListener('click', () => {
-            currentCarouselIndex = (currentCarouselIndex - 1 + totalSlides) % totalSlides;
-            updateCarouselLayout();
-        });
-
-        function updateCarouselLayout() {
-            track.style.transform = `translateX(-${currentCarouselIndex * 100}%)`; 
-        }
-
-        document.getElementById('modalCreateOrderBtn').addEventListener('click', () => {
-            if(currentItemName) {
-                localStorage.setItem('dandy_order_transfer', currentItemName);
-                window.location.href = "custom.html";
-            }
-        });
+       // Replace the old modal triggers setup with this page redirect system
+document.querySelectorAll('.btn-details').forEach(button => {
+    button.addEventListener('click', (e) => {
+        const card = e.target.closest('.product-card');
+        
+        // Package all data attributes into a single object
+        const productData = {
+            name: card.getAttribute('data-name'),
+            price: card.getAttribute('data-price'),
+            desc: card.getAttribute('data-desc'),
+            category: card.getAttribute('data-category'),
+            img1: card.getAttribute('data-img1'),
+            img2: card.getAttribute('data-img2'),
+            img3: card.getAttribute('data-img3'),
+            rev1: card.getAttribute('data-rev1'),
+            rev2: card.getAttribute('data-rev2')
+        };
+        
+        // Store the object as a string in localStorage
+        localStorage.setItem('active_product_view', JSON.stringify(productData));
+        
+        // Redirect to your single dynamic template page
+        window.location.href = "item.html";
+    });
+});
 
         // ==========================================
         // SIDE BAR PANEL CONTROL INTERACTION INTERFACE
