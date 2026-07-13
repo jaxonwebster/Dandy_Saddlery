@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details | Dandy Saddlery</title>
+    <title>Product Details | Dandy Leather Co</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Contextual styles matching your site's premium structural vibe */
@@ -98,7 +98,7 @@
     <!-- Matching Navigation System -->
     <nav class="navbar">
         <a href="index.html" class="nav-logo">
-            <h1>Dandy <span>Saddlery</span></h1>
+            <h1>Dandy <span>Leather Co</span></h1>
         </a>
         
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
@@ -158,7 +158,7 @@
     <footer class="main-footer">
         <div class="footer-top">
             <div class="footer-brand">
-                <h3>Dandy Saddlery</h3>
+                <h3>Dandy Leather Co</h3>
                 <p>Handmade. Built to Last.</p>
                 <div class="social-links">
                     <a href="https://facebook.com" target="_blank" aria-label="Facebook">
@@ -220,7 +220,7 @@
             const product = JSON.parse(rawData);
 
             // Populate Text & Data nodes
-            document.title = `${product.name} | Dandy Saddlery`;
+            document.title = `${product.name} | Dandy Leather Co`;
             document.getElementById('productTitleName').innerText = product.name;
             document.getElementById('productDisplayPrice').innerText = "$" + product.price;
             document.getElementById('productDescriptionBody').innerText = product.desc;
